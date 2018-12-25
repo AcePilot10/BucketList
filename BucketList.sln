@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BucketListSite", "BucketListSite\BucketListSite.csproj", "{BFFAD6E6-11D0-4836-AAB6-433848861474}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BucketList.Entities", "BucketList.Entities\BucketList.Entities.csproj", "{67BB7005-1E47-41C0-B252-69C309FED15A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BFFAD6E6-11D0-4836-AAB6-433848861474}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFFAD6E6-11D0-4836-AAB6-433848861474}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFFAD6E6-11D0-4836-AAB6-433848861474}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67BB7005-1E47-41C0-B252-69C309FED15A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67BB7005-1E47-41C0-B252-69C309FED15A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67BB7005-1E47-41C0-B252-69C309FED15A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67BB7005-1E47-41C0-B252-69C309FED15A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

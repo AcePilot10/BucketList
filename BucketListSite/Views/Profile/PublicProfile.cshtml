@@ -1,0 +1,60 @@
+﻿@using BucketList.Entities.Models
+
+@model User
+
+
+@{
+    ViewData["Title"] = "PublicProfile";
+}
+
+<h2>@Model.UserName's Profile</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Bio</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Bio</td>
+        </tr>
+    </tbody>
+</table>
+
+@if (Model.BucketListItems != null && Model.BucketListItems.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Status</th>
+                <th>Item</th>
+                <th>Creation</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.BucketListItems)
+            {
+                <tr>
+                    <td>
+                        @if (item.Status.Equals("In Progress"))
+                        {
+                            <p class="glyphicon glyphicon-unchecked" />
+                        }
+                        else
+                        {
+                            <p class="glyphicon glyphicon-check" />
+                        }
+
+                    </td>
+                    <td>@Html.ValueFor(x => item.Item)</td>
+                    <td>@Html.ValueFor(x => item.Created)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <label class="text-center center-block">@Model.UserName has no bucket list items yet!</label>
+}

@@ -1,0 +1,32 @@
+﻿@using BucketList.Entities.Models
+@using Microsoft.AspNetCore.Identity
+
+@inject UserManager<User> UserManager
+
+@model User
+
+@{
+    ViewData["Title"] = "index";
+}
+
+<h2>index</h2>
+
+@if (Model.Friends.Count > 0)
+{
+
+    <table>
+        
+        <tr>
+            <th>Friends</th>
+        </tr>
+
+        @foreach (string id in Model.Friends)
+        {
+            var user = await UserManager.FindByIdAsync(id);
+             Console.WriteLine("Test");
+            <tr>
+                <td>@user.UserName</td>
+            </tr>
+        }
+    </table>
+}

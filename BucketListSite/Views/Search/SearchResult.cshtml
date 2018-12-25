@@ -1,0 +1,34 @@
+﻿@using BucketListSite.Models
+
+@model UserListViewModel
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+<partial name="SearchBar"/>
+
+<h2 class="text-center">Results</h2>
+
+<table class="table">
+    @*<thead>
+        <tr>
+            <th>
+                <p class="text-center center-block">Name</p>
+            </th>
+            <th></th>
+        </tr>
+    </thead>*@
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => user.UserName, new { @class = "text-center center-block"})
+                    
+                    <a asp-action="ViewUser" asp-route-id="@user.Id">View User</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

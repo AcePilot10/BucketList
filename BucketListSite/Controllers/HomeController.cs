@@ -5,11 +5,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BucketListSite.Models;
+using BucketList.Entities.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BucketListSite.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
-    {
+    { 
         public IActionResult Index()
         {
             return View();
@@ -18,14 +22,6 @@ namespace BucketListSite.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
             return View();
         }
 
