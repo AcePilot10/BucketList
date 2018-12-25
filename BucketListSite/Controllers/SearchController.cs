@@ -38,8 +38,8 @@ namespace BucketListSite.Controllers
                         select user;
             if (!String.IsNullOrEmpty(searchTerm))
             {
-                users  = users.Where(s => 
-                s.UserName.Contains(searchTerm));
+                users = users.Where(s =>
+               s.UserName.Contains(searchTerm));
             }
 
             List<User> userList = users.ToList();
@@ -50,11 +50,12 @@ namespace BucketListSite.Controllers
 
             return View("SearchResult", viewModel);
         }
-    }
 
-    //[Route("ViewUser/{id}")]
-    //public async Task<IActionResult> ViewUser([FromRoute]string id)
-    //{
-    //    var user = await _userManager.Find 
-    //}
+        [Route("ViewUser/{id}")]
+        public async Task<IActionResult> ViewUser([FromRoute]string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            return Redirect("~/profile/user/" + user.UserName);
+        }
+    }
 }

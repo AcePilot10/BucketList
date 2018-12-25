@@ -31,7 +31,7 @@ namespace BucketListSite.Controllers
             return Redirect("~/profile/user/" + User.Identity.Name);
         }
 
-        [Route("user/{username}")]
+        [Route("User/{username}")]
         public async Task<IActionResult> ViewUser([FromRoute]string username)
         {
             User user = await _userManager.FindByNameAsync(username);
@@ -66,7 +66,7 @@ namespace BucketListSite.Controllers
             return Redirect("~/profile/user/" + User.Identity.Name);
         }
 
-        [Route("DeleteListItem")]
+        [HttpGet("DeleteListItem")]
         public async Task<IActionResult> DeleteBucketListItem(string itemId)
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
@@ -77,7 +77,7 @@ namespace BucketListSite.Controllers
             return Redirect("~/profile/user/" + User.Identity.Name);
         }
 
-        [Route("SetListItemStatus/{id}/{status}")]
+        [HttpGet("SetListItemStatus/{id}/{status}")]
         public async Task<IActionResult> SetListItemStatus([FromRoute]string id, [FromRoute]string status)
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
