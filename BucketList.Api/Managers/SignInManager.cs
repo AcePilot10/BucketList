@@ -1,4 +1,5 @@
 ﻿using BucketList.Api.Http;
+using BucketList.Entities.Models;
 using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json;
 using System;
@@ -10,17 +11,31 @@ namespace BucketList.Api.Managers
 {
     public class SignInManager
     {
-        public async Task<SignInResult> SignInUser(string email, string password)
+        private static SignInManager _instance;
+        public static SignInManager Instance
         {
-            //Uri uri = new Uri("api/users/SignInUser" +
-            //    "?email=" + email + "&password=" + password);
-            Uri uri = new Uri("https://localhost:44309/api/users/signinuser?email=codyjg10@gmail.com&password=Airplane10");
-            var result = await Client.Instance.GetClient.GetAsync(uri);
-            //var result = await Client.Instance.GetClient.GetAsync("api/users/SignInUser" +
-            //    "?email=" + email + "&password=" + password);
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new SignInManager();
+                }
+                return _instance;
+            }
+        }
+
+        public async Task<BucketListSignInResult> SignInUser(string email, string password)
+        {
+            var result = await Client.Instance.GetClient.GetAsync("api/users/SignInUser" +
+                "?email=" + email + "&password=" + password);
             string response = await result.Content.ReadAsStringAsync();
-            SignInResult signInResult = JsonConvert.DeserializeObject<SignInResult>(response);
+            var signInResult = JsonConvert.DeserializeObject<BucketListSignInResult>(response);
             return signInResult;
+        }
+
+        public async void Signout()
+        {
+            await Client.Instance.GetClient.GetAsync("api/users/signout");
         }
     }
 }

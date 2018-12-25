@@ -33,15 +33,15 @@ namespace BucketListSite.Controllers
             _context = context;
         }
 
-        [HttpGet("GetUserByEmail/{email}")]
-        public async Task<User> GetUserByEmail([FromRoute]string email)
+        [HttpGet("GetUserByEmail")]
+        public async Task<User> GetUserByEmail(string email)
         {
             var result = await _userManager.FindByEmailAsync(email);
             return result;
         }
 
-        [HttpGet("GetUserByUsername/{username}")]
-        public async Task<User> GetUserByUsername([FromRoute]string username)
+        [HttpGet("GetUserByUsername")]
+        public async Task<User> GetUserByUsername(string username)
         {
             var result = await _userManager.FindByNameAsync(username);
             return result;
