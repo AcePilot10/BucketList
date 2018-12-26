@@ -9,6 +9,14 @@
 
 <h2>@Model.UserName's Profile</h2>
 
+<div class="form-group">
+    @using (Html.BeginForm("Follow", "Profile", FormMethod.Post))
+    {
+    }
+</div>
+
+<a asp-action="Follow" asp-controller="Profile" asp-route-id="@Model.Id">Follow</a>
+
 <table class="table">
     <thead>
         <tr>
@@ -16,7 +24,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr> 
             <td>@Model.Bio</td>
         </tr>
     </tbody>

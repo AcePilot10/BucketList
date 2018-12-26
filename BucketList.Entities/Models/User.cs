@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using BucketList.Events.UserEvents;
+using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace BucketList.Entities.Models
         public string Bio { get; set; }
         public string BucketListItemsJson { get; set; }
         public string FriendsJson { get; set; }
+        public string EventsJson { get; set; }
 
         [NotMapped]
         public List<BucketListItem> BucketListItems
@@ -21,8 +23,8 @@ namespace BucketList.Entities.Models
                 try
                 {
                     return JsonConvert.DeserializeObject<List<BucketListItem>>(BucketListItemsJson);
-                } 
-                catch(Exception)
+                }
+                catch (Exception)
                 {
                     return new List<BucketListItem>();
                 }
@@ -41,6 +43,22 @@ namespace BucketList.Entities.Models
                 catch (Exception)
                 {
                     return new List<string>();
+                }
+            }
+        }
+
+        [NotMapped]
+        public List<UserEvent> Events
+        {
+            get
+            {
+                try
+                {
+                    return JsonConvert.DeserializeObject<List<UserEvent>>(EventsJson);
+                }
+                catch (Exception)
+                {
+                    return new List<UserEvent>();
                 }
             }
         }

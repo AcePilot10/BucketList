@@ -23,7 +23,6 @@
         @foreach (string id in Model.Friends)
         {
             var user = await UserManager.FindByIdAsync(id);
-             Console.WriteLine("Test");
             <tr>
                 <td>@user.UserName</td>
             </tr>

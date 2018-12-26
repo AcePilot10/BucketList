@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BucketList.Entities.Models;
+using BucketList.Events.UserEvents;
 using BucketListSite.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -92,6 +93,13 @@ namespace BucketListSite.Controllers
         public async void SignOut()
         {
             await _signInManager.SignOutAsync();
+        }
+
+        [HttpGet("GetUserEvents")]
+        public async Task<List<UserEvent>> GetUserEvents(string username)
+        {
+            var user = await _userManager.FindByNameAsync(username);
+            return user.Events;
         }
     }
 }
