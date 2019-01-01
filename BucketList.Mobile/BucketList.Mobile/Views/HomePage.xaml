@@ -5,9 +5,7 @@
              xmlns:views="clr-namespace:BucketList.Mobile.Views">
     <ContentPage.Content>
         <StackLayout>
-            <views:MyBucketListView 
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand"/>
+            <views:NavBarView/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

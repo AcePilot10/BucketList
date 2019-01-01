@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BucketList.Mobile.Views.CreateBucketListItemPage"
-             xmlns:viewmodels="clr-namespace:BucketList.Mobile.ViewModels">
+             xmlns:viewmodels="clr-namespace:BucketList.Mobile.ViewModels"
+             Title="Create Bucket List Item">
 
     <ContentPage.BindingContext>
         <viewmodels:CreateBucketListItemViewModel/>
@@ -10,7 +11,10 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <Entry Text="{Binding Body}"/>
+            <Entry Text="{Binding Body}"
+                   Placeholder="Body"
+                   HorizontalTextAlignment="Center"/>
+            
             <Button Text="Create" Command="{Binding CreateCommand}"
                     VerticalOptions="EndAndExpand"/>
         </StackLayout>
