@@ -1,5 +1,4 @@
 ﻿using BucketList.Api.Http;
-using BucketList.Api.Interfaces;
 using BucketList.Entities.Models;
 using Newtonsoft.Json;
 using System;
@@ -10,8 +9,20 @@ using System.Threading.Tasks;
 
 namespace BucketList.Api.Managers
 {
-    public class UserManager : IUserManager
+    public class UserManager
     {
+        private static UserManager _instance;
+        public static UserManager Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new UserManager();
+                }
+                return _instance;
+            }
+        }
 
         public async Task<BucketListRegisterResult> RegisterUser(string username, string email, string password, string confirmPassword)
         {

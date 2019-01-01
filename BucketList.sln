@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BucketList.Entities", "Buck
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BucketList.Api", "BucketList.Api\BucketList.Api.csproj", "{64D5C396-D9E4-4735-93EF-08E604AA1668}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BucketList.Mobile.Android", "BucketList.Mobile\BucketList.Mobile.Android\BucketList.Mobile.Android.csproj", "{67878B49-D042-40AD-BA81-3FB8FE90914C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BucketList.Mobile", "BucketList.Mobile\BucketList.Mobile\BucketList.Mobile.csproj", "{1BCCABFF-8524-40F3-B62E-06E6A550513A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,16 @@ Global
 		{64D5C396-D9E4-4735-93EF-08E604AA1668}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64D5C396-D9E4-4735-93EF-08E604AA1668}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64D5C396-D9E4-4735-93EF-08E604AA1668}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67878B49-D042-40AD-BA81-3FB8FE90914C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67878B49-D042-40AD-BA81-3FB8FE90914C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67878B49-D042-40AD-BA81-3FB8FE90914C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{67878B49-D042-40AD-BA81-3FB8FE90914C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67878B49-D042-40AD-BA81-3FB8FE90914C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67878B49-D042-40AD-BA81-3FB8FE90914C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1BCCABFF-8524-40F3-B62E-06E6A550513A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BCCABFF-8524-40F3-B62E-06E6A550513A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BCCABFF-8524-40F3-B62E-06E6A550513A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BCCABFF-8524-40F3-B62E-06E6A550513A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

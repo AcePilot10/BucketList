@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BucketList.Mobile.Views.MyBucketListView"
+             xmlns:viewmodels="clr-namespace:BucketList.Mobile.ViewModels">
+    <ContentView.BindingContext>
+        <viewmodels:MyBucketListViewModel/>
+    </ContentView.BindingContext>
+    <ContentView.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding Path=Items}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Path=Item}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

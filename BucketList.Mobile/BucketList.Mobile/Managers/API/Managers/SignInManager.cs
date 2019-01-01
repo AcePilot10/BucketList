@@ -1,5 +1,4 @@
 ﻿using BucketList.Api.Http;
-using BucketList.Api.Interfaces;
 using BucketList.Entities.Models;
 using Microsoft.AspNetCore.Identity;
 using Newtonsoft.Json;
@@ -10,8 +9,23 @@ using System.Threading.Tasks;
 
 namespace BucketList.Api.Managers
 {
-    public class SignInManager : ISignInManager
+    public class SignInManager
     {
+
+        private static SignInManager _instance;
+        public static SignInManager Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new SignInManager();
+                }
+                return _instance;
+            }
+        }
+
+
         public async Task<BucketListSignInResult> SignInUser(string email, string password)
         {
             var result = await Client.Instance.GetClient.GetAsync("api/users/SignInUser" +
