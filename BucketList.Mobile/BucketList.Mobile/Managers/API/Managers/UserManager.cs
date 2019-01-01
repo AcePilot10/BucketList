@@ -1,11 +1,13 @@
 ﻿using BucketList.Api.Http;
 using BucketList.Entities.Models;
+using BucketList.Mobile;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace BucketList.Api.Managers
 {
@@ -45,14 +47,28 @@ namespace BucketList.Api.Managers
         {
             var response = await Client.Instance.GetClient.GetAsync("api/users/GetUserByUsername?username=" + username);
             string result = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<User>(result);
+            try
+            {
+                return JsonConvert.DeserializeObject<User>(result);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public async Task<User> GetUserByEmail(string email)
         {
-            var response = await Client.Instance.GetClient.GetAsync("api/users/GetUserByUsername?email=" + email);
+            var response = await Client.Instance.GetClient.GetAsync("api/users/GetUserByEmail?email=" + email);
             string result = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<User>(result);
+            try
+            {
+                return JsonConvert.DeserializeObject<User>(result);
+            }
+            catch(Exception)
+            {
+                return null;
+            }
         }
 
         public async Task<List<User>> GetAllUsers()
@@ -76,6 +92,13 @@ namespace BucketList.Api.Managers
                 }
             }
             return usersSatisfyingCondition;
+        }
+
+        public async void CreateListItem(string body)
+        {
+            var user = ((App)Application.Current).User;
+            string username = user.UserName;
+            await Client.Instance.GetClient.PostAsync("profile/CreateListItem?body=" + body, null);
         }
     }
 }

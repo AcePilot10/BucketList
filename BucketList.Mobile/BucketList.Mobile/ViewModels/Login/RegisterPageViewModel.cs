@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BucketList.Api.Managers;
+using BucketList.Mobile.Views;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
@@ -23,7 +25,17 @@ namespace BucketList.Mobile.ViewModels.Login
 
         private async void Register()
         {
-
+            var result = await UserManager.Instance.RegisterUser(Username, Email, Password, ConfirmPassword);
+            if (result.Succeeded)
+            {
+                await Application.Current.MainPage.DisplayAlert("Registration Complete", "Succesfully Registered! You may now login.", "Login");
+                Application.Current.MainPage = new NavigationPage(new LoginPage());
+            }
+            else
+            {
+                var error = result.Errors[0];
+                await Application.Current.MainPage.DisplayAlert("Registration Failed", "Error: " + error.Code + "/n" + error.Description, "Return");
+            }
         }
     }
 }

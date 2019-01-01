@@ -31,7 +31,7 @@ namespace BucketList.Mobile.ViewModels.Login
                 return;
             }
             var result = await SignInManager.Instance.SignInUser(Email, Password);
-            if (result.Succeeded)
+            if (result != null && result.Succeeded)
             {
                 ((App)Application.Current).User = user;
                 Application.Current.MainPage = new NavigationPage(new HomePage());

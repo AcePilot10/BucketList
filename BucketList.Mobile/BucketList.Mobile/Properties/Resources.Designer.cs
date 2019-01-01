@@ -61,7 +61,7 @@ namespace BucketList.Mobile.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://localhost:44309/.
+        ///   Looks up a localized string similar to http://acebucketlist.azurewebsites.net/.
         /// </summary>
         internal static string BASE_URL {
             get {

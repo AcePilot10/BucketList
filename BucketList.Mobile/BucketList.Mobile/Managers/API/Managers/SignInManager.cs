@@ -31,8 +31,15 @@ namespace BucketList.Api.Managers
             var result = await Client.Instance.GetClient.GetAsync("api/users/SignInUser" +
                 "?email=" + email + "&password=" + password);
             string response = await result.Content.ReadAsStringAsync();
-            var signInResult = JsonConvert.DeserializeObject<BucketListSignInResult>(response);
-            return signInResult;
+            try
+            {
+                var signInResult = JsonConvert.DeserializeObject<BucketListSignInResult>(response);
+                return signInResult;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }
 
         public async void Signout()

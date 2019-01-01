@@ -101,5 +101,6 @@ namespace BucketListSite.Controllers
             var user = await _userManager.FindByNameAsync(username);
             return user.Events;
         }
+
     }
 }
