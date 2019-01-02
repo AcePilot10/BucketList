@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace BucketList.Mobile.Views
+namespace BucketList.Mobile.Views.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class HomePage : ContentPage
+	public partial class FeedPage : ContentPage
 	{
-		public HomePage ()
+		public FeedPage ()
 		{
 			InitializeComponent ();
 		}

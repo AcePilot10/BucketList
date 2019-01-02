@@ -1,5 +1,4 @@
-﻿using BucketList.Mobile.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,15 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace BucketList.Mobile.Views
+namespace BucketList.Mobile.Views.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NavBarView : ContentView
+	public partial class MyBucketListPage : ContentPage
 	{
-		public NavBarView ()
+		public MyBucketListPage ()
 		{
 			InitializeComponent ();
-            BindingContext = new NavBarViewModel();
 		}
 	}
 }

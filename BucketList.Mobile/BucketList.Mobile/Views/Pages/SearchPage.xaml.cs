@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BucketList.Mobile.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,12 @@ using Xamarin.Forms.Xaml;
 namespace BucketList.Mobile.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class SearchView : ContentView
+	public partial class SearchPage : ContentPage
 	{
-		public SearchView ()
+		public SearchPage ()
 		{
 			InitializeComponent ();
+            BindingContext = new SearchPageViewModel();
 		}
 	}
 }

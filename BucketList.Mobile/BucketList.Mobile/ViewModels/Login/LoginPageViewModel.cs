@@ -1,6 +1,7 @@
 ﻿using BucketList.Api.Managers;
 using BucketList.Mobile.Views;
 using BucketList.Mobile.Views.Login;
+using BucketList.Mobile.Views.Pages;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -34,7 +35,7 @@ namespace BucketList.Mobile.ViewModels.Login
             if (result != null && result.Succeeded)
             {
                 ((App)Application.Current).User = user;
-                Application.Current.MainPage = new NavigationPage(new HomePage());
+                Application.Current.MainPage = new NavigationPage(new FeedPage());
             }
             else
             {

@@ -8,8 +8,7 @@ using Xamarin.Forms;
 namespace BucketList.Mobile.ViewModels
 {
     public class CreateBucketListItemViewModel
-    {
-        
+    {        
         public ICommand CreateCommand { get; private set; }
 
         public string Body { get; set; }

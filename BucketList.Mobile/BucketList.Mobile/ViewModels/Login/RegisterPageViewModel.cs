@@ -34,7 +34,7 @@ namespace BucketList.Mobile.ViewModels.Login
             else
             {
                 var error = result.Errors[0];
-                await Application.Current.MainPage.DisplayAlert("Registration Failed", "Error: " + error.Code + "/n" + error.Description, "Return");
+                await Application.Current.MainPage.DisplayAlert("Registration Failed", "Error: " + error.Code + " " + error.Description, "Return");
             }
         }
     }

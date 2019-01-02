@@ -2,9 +2,21 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BucketList.Mobile.Views.FeedView">
-  <ContentView.Content>
+    <ContentView.Content>
       <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
+
+            <ListView ItemsSource="{Binding Events}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <Label Text="{Binding Title}" HorizontalTextAlignment="Center"/>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+           
       </StackLayout>
   </ContentView.Content>
 </ContentView>

@@ -1,5 +1,6 @@
 ﻿using BucketList.Api.Http;
 using BucketList.Entities.Models;
+using BucketList.Events.UserEvents;
 using BucketList.Mobile;
 using Newtonsoft.Json;
 using System;
@@ -32,13 +33,11 @@ namespace BucketList.Api.Managers
             {
                 UserName = username,
                 Email = email,
-                Password = password,
-                ConfirmPassword = confirmPassword
             };
 
             string json = JsonConvert.SerializeObject(user);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var result = await Client.Instance.GetClient.PostAsync("api/users/RegisterUser", content);
+            var result = await Client.Instance.GetClient.PostAsync("api/users/RegisterUser?password=" + password, content);
             string resultContent = await result.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<BucketListRegisterResult>(resultContent);
         }
@@ -99,6 +98,27 @@ namespace BucketList.Api.Managers
             var user = ((App)Application.Current).User;
             string username = user.UserName;
             await Client.Instance.GetClient.PostAsync("profile/CreateListItem?body=" + body, null);
+        }
+
+        public async Task<List<UserEvent>> GetUserEvents(string username)
+        {
+            try
+            {
+                var response = await Client.Instance.GetClient.GetAsync("api/users/getuserevents?username=" + username);
+                var result = await response.Content.ReadAsStringAsync();
+                try
+                {
+                    return JsonConvert.DeserializeObject<List<UserEvent>>(username);
+                }
+                catch (Exception)
+                {
+                    return new List<UserEvent>();
+                }
+            }
+            catch (Exception e)
+            {
+                return new List<UserEvent>();
+            }
         }
     }
 }

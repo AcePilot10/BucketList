@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BucketList.Mobile.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace BucketList.Mobile.Views
 		public FeedView ()
 		{
 			InitializeComponent ();
+            BindingContext = new FeedViewModel();
 		}
 	}
 }
