@@ -102,20 +102,13 @@ namespace BucketList.Api.Managers
 
         public async Task<List<UserEvent>> GetUserEvents(string username)
         {
+            var response = await Client.Instance.GetClient.GetAsync("api/users/GetUserEvents?username=" + username);
+            var result = await response.Content.ReadAsStringAsync();
             try
             {
-                var response = await Client.Instance.GetClient.GetAsync("api/users/getuserevents?username=" + username);
-                var result = await response.Content.ReadAsStringAsync();
-                try
-                {
-                    return JsonConvert.DeserializeObject<List<UserEvent>>(username);
-                }
-                catch (Exception)
-                {
-                    return new List<UserEvent>();
-                }
+                return JsonConvert.DeserializeObject<List<UserEvent>>(username);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return new List<UserEvent>();
             }

@@ -5,8 +5,11 @@
              Title="Search">
     <ContentPage.Content>
         <StackLayout>
-            
-            <Entry Text="{Binding Query}"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Entry Text="{Binding Query}"/>
+                <Button Text="Search" Command="{Binding SearchCommand}"/>
+            </StackLayout>
 
             <ListView ItemsSource="{Binding SearchResults}">
                 <ListView.ItemTemplate>

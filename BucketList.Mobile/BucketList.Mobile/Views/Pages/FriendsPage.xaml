@@ -5,7 +5,10 @@
              xmlns:views="clr-namespace:BucketList.Mobile.Views">
     <ContentPage.Content>
         <StackLayout>
-            <Entry Text="Search Users" ReturnCommand="{Binding SearchCommand}"/>
+            <Button Text="Search Users" 
+                    Command="{Binding SearchCommand}"
+                    HorizontalOptions="CenterAndExpand"/>
+            
             <views:FriendsListView/>
             <views:NavBarView/>
         </StackLayout>

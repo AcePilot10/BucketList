@@ -16,9 +16,9 @@ namespace BucketList.Mobile.ViewModels
 
         public NavBarViewModel()
         {
-            NavigateFeedCommand = new Command(x => Application.Current.MainPage = new FeedPage());
-            NavigateFriendsCommand = new Command(x => Application.Current.MainPage = new FriendsPage());
-            NavigateMyListCommand = new Command(x => Application.Current.MainPage = new MyBucketListPage());
+            NavigateFeedCommand = new Command(x => Application.Current.MainPage = new NavigationPage(new FeedPage()));
+            NavigateFriendsCommand = new Command(x => Application.Current.MainPage = new NavigationPage(new FriendsPage()));
+            NavigateMyListCommand = new Command(x => Application.Current.MainPage = new NavigationPage(new MyBucketListPage()));
         }
     }
 }
