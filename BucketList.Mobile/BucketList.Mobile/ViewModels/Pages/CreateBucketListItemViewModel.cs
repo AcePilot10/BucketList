@@ -1,4 +1,5 @@
 ﻿using BucketList.Api.Managers;
+using BucketList.Mobile.Views.Pages;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,6 +22,7 @@ namespace BucketList.Mobile.ViewModels
         private void Create()
         {
             UserManager.Instance.CreateListItem(Body);
+            Application.Current.MainPage = new NavigationPage(new MyBucketListPage());
         }
     }
 }

@@ -11,8 +11,11 @@
 
   <ItemGroup>
     <Compile Remove="Models\**" />
+    <Compile Remove="Services\**" />
     <EmbeddedResource Remove="Models\**" />
+    <EmbeddedResource Remove="Services\**" />
     <None Remove="Models\**" />
+    <None Remove="Services\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,10 +48,10 @@
     <EmbeddedResource Update="Views\Pages\CreateBucketListItemPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\FeedView.xaml">
+    <EmbeddedResource Update="Views\Views\FeedView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\FriendsListView.xaml">
+    <EmbeddedResource Update="Views\Views\FriendsListView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Pages\FeedPage.xaml">
@@ -63,10 +66,10 @@
     <EmbeddedResource Update="Views\Login\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MyBucketListView.xaml">
+    <EmbeddedResource Update="Views\Views\MyBucketListView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\NavBarView.xaml">
+    <EmbeddedResource Update="Views\Views\NavBarView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Pages\MyBucketListPage.xaml">
@@ -75,9 +78,5 @@
     <EmbeddedResource Update="Views\Pages\SearchPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Services\" />
   </ItemGroup>
 </Project>

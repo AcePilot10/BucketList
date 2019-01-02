@@ -26,18 +26,21 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Text="Friends"
-                        Grid.Column="1"
-                        HorizontalOptions="CenterAndExpand"
+                        Grid.Column="0"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
                         Command="{Binding NavigateFriendsCommand}"/>
 
                 <Button Text="Feed" 
-                        Grid.Column="2" 
-                        HorizontalOptions="CenterAndExpand"
+                        Grid.Column="1" 
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
                         Command="{Binding NavigateFeedCommand}"/>
 
-                <Button Text="My Bucket List" 
-                        Grid.Column="3" 
-                        HorizontalOptions="CenterAndExpand"
+                <Button Text="My List" 
+                        Grid.Column="2" 
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
                         Command="{Binding NavigateMyListCommand}"/>
             </Grid>
         </StackLayout>

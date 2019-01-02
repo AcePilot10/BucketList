@@ -19,6 +19,10 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button Text="Create New"
+                    Command="{Binding CreateListItemCommand}"
+                    VerticalOptions="EndAndExpand"
+                    HorizontalOptions="CenterAndExpand"/>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

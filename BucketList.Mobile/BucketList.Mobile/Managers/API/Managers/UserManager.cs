@@ -95,9 +95,21 @@ namespace BucketList.Api.Managers
 
         public async void CreateListItem(string body)
         {
+            BucketListItem item = new BucketListItem()
+            {
+                Created = DateTime.Now,
+                Status = "In Progress",
+                Item = body,
+                Id = Guid.NewGuid().ToString()
+            };
+
             var user = ((App)Application.Current).User;
             string username = user.UserName;
-            await Client.Instance.GetClient.PostAsync("profile/CreateListItem?body=" + body, null);
+
+            var json = JsonConvert.SerializeObject(item);
+
+            StringContent content = new StringContent(json);
+            await Client.Instance.GetClient.PostAsync("api/users/CreateListItem?username=" + username, content);
         }
 
         public async Task<List<UserEvent>> GetUserEvents(string username)

@@ -109,6 +109,32 @@ namespace BucketListSite.Controllers
             return user.Events;
         }
 
+        [HttpPost("CreateListItem")]
+        public async void CreateListItem([FromBody]BucketListItem item, string username)
+        {
+            var user = await _userManager.FindByNameAsync(username);
+
+            //Update list items JSON
+            var listItems = user.BucketListItems;
+            listItems.Add(item);
+            string json = JsonConvert.SerializeObject(listItems);
+            user.BucketListItemsJson = json;
+
+            //Update events
+            UserCreatedItemEvent createdEvent = new UserCreatedItemEvent()
+            {
+                ItemId = item.Id,
+                Time = DateTime.Now,
+                Title = user.UserName + " added to their bucket list!",
+                UserId = user.Id
+            };
+            var eventList = user.Events;
+            eventList.Add(createdEvent);
+            string eventJson = JsonConvert.SerializeObject(eventList);
+            user.EventsJson = eventJson;
+            await _userManager.UpdateAsync(user);
+        }
+
         private string HashPassword(string password)
         {
             byte[] salt;

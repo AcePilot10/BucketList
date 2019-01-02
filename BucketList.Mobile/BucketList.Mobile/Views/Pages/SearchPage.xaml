@@ -7,22 +7,23 @@
         <StackLayout>
 
             <StackLayout Orientation="Horizontal">
-                <Entry Text="{Binding Query}"/>
+                <Entry Text="{Binding Query}" HorizontalOptions="FillAndExpand"/>
                 <Button Text="Search" Command="{Binding SearchCommand}"/>
             </StackLayout>
 
-            <ListView ItemsSource="{Binding SearchResults}">
+            <ListView ItemsSource="{Binding SearchResults}"
+                      BackgroundColor="Red">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            
+
                             <Label Text="{Binding UserName}" HorizontalTextAlignment="Center"/>
-                       
+
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
