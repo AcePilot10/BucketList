@@ -10,6 +10,12 @@
             <Entry Placeholder="Confirm Password" Text="{Binding ConfirmPassword}"/>
             <Button Text="Create Account" Command="{Binding RegisterCommand}"/>
             <Button Text="Login" Command="{Binding LoginCommand}"/>
+            <ActivityIndicator
+                IsRunning="{Binding Loading}"
+                HeightRequest="350"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                Color="DarkGray"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

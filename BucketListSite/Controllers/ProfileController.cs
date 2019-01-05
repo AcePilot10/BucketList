@@ -84,7 +84,6 @@ namespace BucketListSite.Controllers
         }
 
 
-
         [HttpGet("DeleteListItem")]
         public async Task<IActionResult> DeleteBucketListItem(string itemId)
         {
