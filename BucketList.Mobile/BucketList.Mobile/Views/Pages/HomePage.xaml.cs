@@ -9,12 +9,12 @@ using Xamarin.Forms.Xaml;
 
 namespace BucketList.Mobile.Views.Pages
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MyBucketListPage : ContentPage
-	{
-		public MyBucketListPage ()
-		{
-			InitializeComponent ();
-		}
-	}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class HomePage : TabbedPage
+    {
+        public HomePage()
+        {
+            InitializeComponent();
+        }
+    }
 }

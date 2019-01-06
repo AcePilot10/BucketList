@@ -22,7 +22,7 @@ namespace BucketList.Mobile.ViewModels
         private void Create()
         {
             UserManager.Instance.CreateListItem(Body);
-            Application.Current.MainPage = new NavigationPage(new MyBucketListPage());
+            Application.Current.MainPage = new NavigationPage(new HomePage());
         }
     }
 }

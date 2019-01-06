@@ -54,7 +54,8 @@ namespace BucketList.Mobile.ViewModels.Login
             {
                 Loading = false;
                 ((App)Application.Current).User = user;
-                Application.Current.MainPage = new NavigationPage(new FeedPage());
+                //Application.Current.MainPage = new NavigationPage(new FeedPage());
+                Application.Current.MainPage = new NavigationPage(new HomePage());
             }
             else
             {

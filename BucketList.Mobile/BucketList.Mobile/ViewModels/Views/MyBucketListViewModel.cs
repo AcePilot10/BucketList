@@ -28,5 +28,10 @@ namespace BucketList.Mobile.ViewModels
             Items = new ObservableCollection<BucketListItem>();
             items.ForEach(x => Items.Add(x));
         }
+
+        public void SelectItem(BucketListItem item)
+        {
+
+        }
     }
 }

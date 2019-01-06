@@ -8,7 +8,9 @@
     </ContentView.BindingContext>
     <ContentView.Content>
         <StackLayout>
-            <ListView ItemsSource="{Binding Path=Items}">
+            <ListView ItemsSource="{Binding Path=Items}"
+                      x:Name="listItems"
+                      ItemSelected="listItems_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

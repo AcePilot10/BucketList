@@ -10,13 +10,19 @@
     
   <ContentView.Content>
       <StackLayout>
-            <ListView ItemsSource="{Binding Friends}">
+            <Button Text="Search Users" 
+                    Command="{Binding SearchCommand}"
+                    HorizontalOptions="CenterAndExpand"/>
+
+            <ListView ItemsSource="{Binding FriendsList}"
+                      x:Name="listFriends"
+                      ItemSelected="ListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Label Text="{Binding UserName}"
                                    HorizontalTextAlignment="Center"
-                                   FontSize="Large"/>
+                                   VerticalTextAlignment="Center"/>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
