@@ -52,9 +52,11 @@ namespace BucketList.Mobile.ViewModels.Login
             var result = await SignInManager.Instance.SignInUser(Email, Password);
             if (result != null && result.Succeeded)
             {
+                Application.Current.Properties["Email"] = Email;
+                Application.Current.Properties["Password"] = Password;
+                await Application.Current.SavePropertiesAsync();
                 Loading = false;
                 ((App)Application.Current).User = user;
-                //Application.Current.MainPage = new NavigationPage(new FeedPage());
                 Application.Current.MainPage = new NavigationPage(new HomePage());
             }
             else

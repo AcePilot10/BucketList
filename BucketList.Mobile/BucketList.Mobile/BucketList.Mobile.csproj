@@ -35,6 +35,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Views\Pages\BucketListItemPage.xaml.cs">
+      <DependentUpon>BucketListItemPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Pages\ProfilePage.xaml.cs">
       <DependentUpon>ProfilePage.xaml</DependentUpon>
     </Compile>
@@ -48,7 +51,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Pages\BucketListItem.xaml">
+    <EmbeddedResource Update="Views\Pages\BucketListItemPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Pages\CreateBucketListItemPage.xaml">
