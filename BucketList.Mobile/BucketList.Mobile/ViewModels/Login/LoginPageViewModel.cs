@@ -56,7 +56,7 @@ namespace BucketList.Mobile.ViewModels.Login
                 Application.Current.Properties["Password"] = Password;
                 await Application.Current.SavePropertiesAsync();
                 Loading = false;
-                ((App)Application.Current).User = user;
+                App.User = user;
                 Application.Current.MainPage = new NavigationPage(new HomePage());
             }
             else

@@ -83,7 +83,6 @@ namespace BucketListSite.Controllers
             return Redirect("~/profile/user/" + User.Identity.Name);
         }
 
-
         [HttpGet("DeleteListItem")]
         public async Task<IActionResult> DeleteBucketListItem(string itemId)
         {

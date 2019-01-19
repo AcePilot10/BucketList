@@ -32,8 +32,10 @@ namespace BucketList.Mobile.Views
 
         private void listItems_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            if (listItems.SelectedItem == null) return;
             var item = e.SelectedItem as BucketListItem;
             Application.Current.MainPage.Navigation.PushAsync(new BucketListItemPage(item));
+            listItems.SelectedItem = null;
         }
     }
 }

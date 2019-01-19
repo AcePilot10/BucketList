@@ -103,7 +103,7 @@ namespace BucketList.Api.Managers
                 Id = Guid.NewGuid().ToString()
             };
 
-            var user = ((App)Application.Current).User;
+            var user = App.User;
             string username = user.UserName;
 
             var json = JsonConvert.SerializeObject(item);
@@ -124,6 +124,12 @@ namespace BucketList.Api.Managers
             {
                 return new List<UserEvent>();
             }
+        }
+
+        public async Task SaveUser(User user)
+        {
+            StringContent content = new StringContent(JsonConvert.SerializeObject(user));
+            await Client.Instance.GetClient.PostAsync("profile/SaveUser", content);
         }
     }
 }

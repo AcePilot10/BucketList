@@ -12,7 +12,7 @@ namespace BucketList.Mobile
     public partial class App : Application
     {
 
-        public User User { get; set; }
+        public static User User { get; set; }
 
         public App()
         {

@@ -24,7 +24,7 @@ namespace BucketList.Mobile.ViewModels
 
         private async void InitFriends()
         {
-            var user = ((App)Application.Current).User;
+            var user = App.User;
             foreach (string friendId in user.Friends)  
             {
                 var friend = await UserManager.Instance.GetUsersWhere(x => x.Id == friendId);
