@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BucketListSite", "BucketListSite\BucketListSite.csproj", "{BFFAD6E6-11D0-4836-AAB6-433848861474}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BucketList.Entities", "BucketList.Entities\BucketList.Entities.csproj", "{67BB7005-1E47-41C0-B252-69C309FED15A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BucketList.Api", "BucketList.Api\BucketList.Api.csproj", "{64D5C396-D9E4-4735-93EF-08E604AA1668}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BucketList.Mobile.Android", "BucketList.Mobile\BucketList.Mobile.Android\BucketList.Mobile.Android.csproj", "{67878B49-D042-40AD-BA81-3FB8FE90914C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BucketList.Mobile", "BucketList.Mobile\BucketList.Mobile\BucketList.Mobile.csproj", "{1BCCABFF-8524-40F3-B62E-06E6A550513A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BucketList.Mobile", "BucketList.Mobile\BucketList.Mobile\BucketList.Mobile.csproj", "{1BCCABFF-8524-40F3-B62E-06E6A550513A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BucketList.Site", "BucketList.Site\BucketList.Site.csproj", "{7B1AAC3F-BF17-40E1-9C3B-D3087B700133}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BFFAD6E6-11D0-4836-AAB6-433848861474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BFFAD6E6-11D0-4836-AAB6-433848861474}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BFFAD6E6-11D0-4836-AAB6-433848861474}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BFFAD6E6-11D0-4836-AAB6-433848861474}.Release|Any CPU.Build.0 = Release|Any CPU
 		{67BB7005-1E47-41C0-B252-69C309FED15A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{67BB7005-1E47-41C0-B252-69C309FED15A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67BB7005-1E47-41C0-B252-69C309FED15A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,6 +37,10 @@ Global
 		{1BCCABFF-8524-40F3-B62E-06E6A550513A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BCCABFF-8524-40F3-B62E-06E6A550513A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BCCABFF-8524-40F3-B62E-06E6A550513A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B1AAC3F-BF17-40E1-9C3B-D3087B700133}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B1AAC3F-BF17-40E1-9C3B-D3087B700133}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B1AAC3F-BF17-40E1-9C3B-D3087B700133}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B1AAC3F-BF17-40E1-9C3B-D3087B700133}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

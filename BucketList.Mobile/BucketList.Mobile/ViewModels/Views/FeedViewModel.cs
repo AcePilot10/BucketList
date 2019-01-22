@@ -19,8 +19,7 @@ namespace BucketList.Mobile.ViewModels
 
         private async void InitEvents()
         {
-            string username = App.User.UserName;
-            var events = await UserManager.Instance.GetUserEvents(username);
+            var events = await UserManager.Instance.GetUserEvents(App.User.ID);
             events.ForEach(x => Events.Add(x));
         }
     }

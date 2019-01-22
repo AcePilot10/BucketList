@@ -7,10 +7,10 @@ namespace BucketList.Entities.Models
 {
     public class BucketListItem
     {
-        [Key]
-        public string Id { get; set; }
+        public Guid ID { get; set; }
+        public Guid UserId { get; set; }
         public string Item { get; set; }
-        public string Status { get; set; }
+        public int Status { get; set; }
         public DateTime Created { get; set; }
     }
 }

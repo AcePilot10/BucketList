@@ -19,21 +19,21 @@ namespace BucketList.Mobile.ViewModels
         public FriendsListViewModel()
         {
             SearchCommand = new Command(x => Application.Current.MainPage.Navigation.PushAsync(new SearchPage()));
-            InitFriends();    
+            //InitFriends(); 
         }
 
-        private async void InitFriends()
-        {
-            var user = App.User;
-            foreach (string friendId in user.Friends)  
-            {
-                var friend = await UserManager.Instance.GetUsersWhere(x => x.Id == friendId);
-                if (friend[0] != null)
-                {
-                    var friendToAdd = friend[0];
-                    FriendsList.Add(friendToAdd);
-                }
-            }
-        }
+        //private async void InitFriends()
+        //{
+        //    var user = App.User;
+        //    foreach (string friendId in user.Friends)  
+        //    {
+        //        var friend = await UserManager.Instance.GetUsersWhere(x => x.Id == friendId);
+        //        if (friend[0] != null)
+        //        {
+        //            var friendToAdd = friend[0];
+        //            FriendsList.Add(friendToAdd);
+        //        }
+        //    }
+        //}
     }
 }

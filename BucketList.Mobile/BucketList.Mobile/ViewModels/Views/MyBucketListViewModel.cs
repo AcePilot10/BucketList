@@ -23,10 +23,10 @@ namespace BucketList.Mobile.ViewModels
 
         private void LoadItems()
         {
-            var user = App.User;
-            var items = user.BucketListItems;
-            Items = new ObservableCollection<BucketListItem>();
-            items.ForEach(x => Items.Add(x));
+           // var user = App.User;
+           ////var items = user.BucketListItems;
+           // Items = new ObservableCollection<BucketListItem>();
+           // items.ForEach(x => Items.Add(x));
         }
     }
 }

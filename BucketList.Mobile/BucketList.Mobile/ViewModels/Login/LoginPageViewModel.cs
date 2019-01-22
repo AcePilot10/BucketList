@@ -49,7 +49,7 @@ namespace BucketList.Mobile.ViewModels.Login
                 await Application.Current.MainPage.DisplayAlert("Login Error", "Could not find user with that email", "Return");
                 return;
             }
-            var result = await SignInManager.Instance.SignInUser(Email, Password);
+            var result = await UserManager.Instance.SignInUser(Email, Password);
             if (result != null && result.Succeeded)
             {
                 Application.Current.Properties["Email"] = Email;

@@ -3,7 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BucketList.Mobile.Views.Pages.EditPage">
     <ContentPage.Content>
-        <StackLayout> 
+        <StackLayout>
+            <Entry Text="{Binding Item.Item}"
+                   Placeholder="Body"
+                   HorizontalTextAlignment="Center"/>
+
+            <Button Text="Save" Command="{Binding SaveCommand}"
+                    VerticalOptions="EndAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

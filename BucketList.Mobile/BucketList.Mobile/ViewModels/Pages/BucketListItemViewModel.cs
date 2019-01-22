@@ -1,6 +1,7 @@
 ﻿using BucketList.Api.Managers;
 using BucketList.Entities.Models;
 using BucketList.Mobile.ViewModels.Base;
+using BucketList.Mobile.Views.Pages;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,30 +26,58 @@ namespace BucketList.Mobile.ViewModels.Pages
             }
         }
 
-        public string SetStatusText { get; set; }
+        private string _setStatusText;
+        public string SetStatusText
+        {
+            get
+            {
+                return _setStatusText;
+            }
+            set
+            {
+                _setStatusText = value;
+                RaisePropertyChanged("SetStatusText");
+            }
+        }
+
         public ICommand SetStatusCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
+        public ICommand EditCommand { get; set; }
 
         public BucketListItemViewModel(BucketListItem item)
         {
             Item = item;
             SetStatusCommand = new Command(SetStatus);
             DeleteCommand = new Command(Delete);
+            EditCommand = new Command(x => Application.Current.MainPage.Navigation.PushAsync(new EditPage(item)));
+            InitStatusText();
         }
 
-        private async void SetStatus()
+        private void InitStatusText()
         {
-            if (Item.Status == "In Progress")
+            if (Item.Status == StatusConstants.IN_PROGRESS)
             {
-                Item.Status = "Complete";
-                SetStatusText = "Set Incomplete";
+                SetStatusText = "Set Complete";
             }
             else
             {
-                Item.Status = "Incomplete";
+                SetStatusText = "Set In Progress";
+            }
+        }
+
+        private void SetStatus()
+        {
+            if (Item.Status == StatusConstants.IN_PROGRESS)
+            {
+                Item.Status = StatusConstants.COMPLETE;
+                SetStatusText = "Set In Progress";
+            }
+            else
+            {
+                Item.Status = StatusConstants.IN_PROGRESS;
                 SetStatusText = "Set Complete";
             }
-            await UserManager.Instance.SaveUser(App.User);
+            ProfileManager.Instance.SaveUser(App.User);
         }
 
         private void Delete()

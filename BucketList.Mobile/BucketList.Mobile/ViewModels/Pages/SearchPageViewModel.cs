@@ -25,12 +25,12 @@ namespace BucketList.Mobile.ViewModels
 
         private async void Search()
         {
-            SearchResults.Clear();
-            var users = await UserManager.Instance.GetUsersWhere(x => x.UserName.Contains(Query));
-            foreach (var user in users)
-            {
-                SearchResults.Add(user);
-            }
+            //SearchResults.Clear();
+            //var users = await UserManager.Instance.GetUsersWhere(x => x.UserName.Contains(Query));
+            //foreach (var user in users)
+            //{
+            //    SearchResults.Add(user);
+            //}
         }
     }
 }

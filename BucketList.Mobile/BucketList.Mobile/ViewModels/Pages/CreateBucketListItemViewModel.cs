@@ -19,9 +19,9 @@ namespace BucketList.Mobile.ViewModels
             CreateCommand = new Command(Create);
         }
 
-        private void Create()
+        private async void Create()
         {
-            UserManager.Instance.CreateListItem(Body);
+            await ProfileManager.Instance.CreateListItem(Body, App.User.ID);
             Application.Current.MainPage = new NavigationPage(new HomePage());
         }
     }

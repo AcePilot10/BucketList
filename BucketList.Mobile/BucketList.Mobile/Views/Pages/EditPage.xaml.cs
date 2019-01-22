@@ -1,4 +1,5 @@
-﻿using BucketList.Mobile.ViewModels.Pages;
+﻿using BucketList.Entities.Models;
+using BucketList.Mobile.ViewModels.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +14,10 @@ namespace BucketList.Mobile.Views.Pages
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class EditPage : ContentPage
 	{
-		public EditPage ()
+		public EditPage (BucketListItem item)
 		{
 			InitializeComponent ();
-            BindingContext = new EditPageViewModel();
+            BindingContext = new EditPageViewModel(item);
 		}
 	}
 }

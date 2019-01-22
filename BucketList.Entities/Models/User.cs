@@ -8,58 +8,24 @@ using System.Text;
 
 namespace BucketList.Entities.Models
 {
-    public class User : IdentityUser
+    public class User
     {
+        public Guid ID { get; set; }
+        public string Email { get; set; }
+        public string Username { get; set; }
+        public string PasswordHash { get; set; }
         public string Bio { get; set; }
-        public string BucketListItemsJson { get; set; }
-        public string FriendsJson { get; set; }
-        public string EventsJson { get; set; }
+        public string FollowedUsersJson { get; set; }
 
-        [NotMapped]
-        public List<BucketListItem> BucketListItems
+        public List<Guid> GetFollowedUsers()
         {
-            get
+            try
             {
-                try
-                {
-                    return JsonConvert.DeserializeObject<List<BucketListItem>>(BucketListItemsJson);
-                }
-                catch (Exception)
-                {
-                    return new List<BucketListItem>();
-                }
+                return JsonConvert.DeserializeObject<List<Guid>>(FollowedUsersJson);
             }
-        }
-
-        [NotMapped]
-        public List<string> Friends
-        {
-            get
+            catch (Exception)
             {
-                try
-                {
-                    return JsonConvert.DeserializeObject<List<string>>(FriendsJson);
-                }
-                catch (Exception)
-                {
-                    return new List<string>();
-                }
-            }
-        }
-
-        [NotMapped]
-        public List<UserEvent> Events
-        {
-            get
-            {
-                try
-                {
-                    return JsonConvert.DeserializeObject<List<UserEvent>>(EventsJson);
-                }
-                catch (Exception)
-                {
-                    return new List<UserEvent>();
-                }
+                return new List<Guid>();
             }
         }
     }

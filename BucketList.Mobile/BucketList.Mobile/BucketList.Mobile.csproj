@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\BucketList.Api\BucketList.Api.csproj" />
     <ProjectReference Include="..\..\BucketList.Entities\BucketList.Entities.csproj" />
   </ItemGroup>
 

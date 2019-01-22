@@ -1,6 +1,7 @@
 ﻿using BucketList.Api.Http;
 using BucketList.Api.Interfaces;
 using BucketList.Entities.Models;
+using BucketList.Events.UserEvents;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,22 +13,24 @@ namespace BucketList.Api.Managers
 {
     public class UserManager : IUserManager
     {
-
-        public async Task<BucketListRegisterResult> RegisterUser(string username, string email, string password, string confirmPassword)
+        private static UserManager _instance;
+        public static UserManager Instance
         {
-            var user = new
+            get
             {
-                UserName = username,
-                Email = email,
-                Password = password,
-                ConfirmPassword = confirmPassword
-            };
+                if (_instance == null)
+                {
+                    _instance = new UserManager();
+                }
+                return _instance;
+            }
+        }
 
-            string json = JsonConvert.SerializeObject(user);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var result = await Client.Instance.GetClient.PostAsync("api/users/RegisterUser", content);
-            string resultContent = await result.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<BucketListRegisterResult>(resultContent);
+        public async Task RegisterUser(string username, string email, string password, string confirmPassword)
+        {
+            var result = await Client.Instance.GetClient.PostAsync("api/users/RegisterUser?username=" + username
+                                                                   + "&password=" + password
+                                                                   + "&email=" + confirmPassword, null);
         }
 
         public async Task<User> GetUserByUsername(string username)
@@ -65,6 +68,22 @@ namespace BucketList.Api.Managers
                 }
             }
             return usersSatisfyingCondition;
+        }
+
+        public async Task<List<UserEvent>> GetUserEvents(Guid userId)
+        {
+            var response = await Client.Instance.GetClient.GetAsync("api/users/GetUserEvents?userId=" + userId);
+            var result = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<List<UserEvent>>(result);
+        }
+
+        public async Task<BucketListSignInResult> SignInUser(string email, string password)
+        {
+            var response = await Client.Instance.GetClient.GetAsync("api/users/SignInUser"
+                                                                    + "?email=" + email
+                                                                    + "&password=" + password);
+            var result = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<BucketListSignInResult>(result);
         }
     }
 }
