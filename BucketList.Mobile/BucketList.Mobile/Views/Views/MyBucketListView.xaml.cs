@@ -37,5 +37,10 @@ namespace BucketList.Mobile.Views
             Application.Current.MainPage.Navigation.PushAsync(new BucketListItemPage(item));
             listItems.SelectedItem = null;
         }
+
+        private void FAB_Clicked(object sender, EventArgs e)
+        {
+            Model.CreateListItemCommand.Execute(null);
+        }
     }
 }

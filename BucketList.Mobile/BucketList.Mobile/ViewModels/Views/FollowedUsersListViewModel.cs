@@ -11,29 +11,31 @@ using Xamarin.Forms;
 
 namespace BucketList.Mobile.ViewModels
 {
-    public class FriendsListViewModel
+    public class FollowedUsersListViewModel
     {
         public ObservableCollection<User> FriendsList { get; set; } = new ObservableCollection<User>();
         public ICommand SearchCommand { get; private set; }
 
-        public FriendsListViewModel()
+        public FollowedUsersListViewModel()
         {
             SearchCommand = new Command(x => Application.Current.MainPage.Navigation.PushAsync(new SearchPage()));
-            //InitFriends(); 
         }
 
-        //private async void InitFriends()
-        //{
-        //    var user = App.User;
-        //    foreach (string friendId in user.Friends)  
-        //    {
-        //        var friend = await UserManager.Instance.GetUsersWhere(x => x.Id == friendId);
-        //        if (friend[0] != null)
-        //        {
-        //            var friendToAdd = friend[0];
-        //            FriendsList.Add(friendToAdd);
-        //        }
-        //    }
-        //}
+        public async void UpdateFollowedUsers()
+        {
+            FriendsList.Clear();
+
+            var user = App.User;
+
+            foreach (var friendId in user.GetFollowedUsers())
+            {
+                var friend = await UserManager.Instance.GetUsersWhere(x => x.ID == friendId);
+                if (friend[0] != null)
+                {
+                    var friendToAdd = friend[0];
+                    FriendsList.Add(friendToAdd);
+                }
+            }
+        }
     }
 }

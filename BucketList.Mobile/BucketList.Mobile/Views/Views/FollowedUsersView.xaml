@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BucketList.Mobile.Views.FriendsListView"
+             xmlns:viewmodels="clr-namespace:BucketList.Mobile.ViewModels">
+    
+    <ContentView.BindingContext>
+        <viewmodels:FollowedUsersListViewModel/>
+    </ContentView.BindingContext>
+    
+  <ContentView.Content>
+        <StackLayout>
+
+            <Label Text="Followed Users"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   Margin="25"
+                   FontSize="Large"/>
+
+            <ListView ItemsSource="{Binding FriendsList}"
+                      x:Name="listFriends"
+                      ItemSelected="ListView_ItemSelected"
+                      SeparatorColor="Black"
+                      Margin="15">
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal"
+                                         BackgroundColor="#5364E3">
+                                <Image Source="account.png"
+                                       HorizontalOptions="Start"/>
+
+                                <Label Text="{Binding Username}"
+                                       HorizontalTextAlignment="Center"
+                                       VerticalTextAlignment="Center"
+                                       HorizontalOptions="CenterAndExpand"
+                                       TextColor="White"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Text="Search Users" 
+                    Command="{Binding SearchCommand}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="End"/>
+           
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

@@ -1,23 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BucketList.Mobile.Views.Pages.BucketListItemPage">
+             x:Class="BucketList.Mobile.Views.Pages.BucketListItemPage"
+             Title="My Bucket List"
+             BackgroundColor="{StaticResource colorPrimary}">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding Item.Item}"
-                HorizontalOptions="CenterAndExpand" />
-            
-            <Label Text="{Binding Path=Item.Status, StringFormat='Status: {0}'}"
-                HorizontalOptions="CenterAndExpand"/>
 
-            <Label Text="{Binding Path=Item.Created, StringFormat='Created {0}'}"
-                HorizontalOptions="CenterAndExpand"/>
+            <StackLayout Margin="15"
+                         Padding="15">
 
-            <StackLayout Orientation="Horizontal">
-                <Button Text="{Binding SetStatusText}" Command="{Binding SetStatusCommand}"/>
-                <Button Text="Delete" Command="{Binding DeleteCommand}"/>
-                <Button Text="Edit" Command="{Binding EditCommand}"/>
+                <Label Text="{Binding Item.Item}"
+                       Style="{StaticResource styleBucketListItemData}"
+                       BackgroundColor="#5364E3"/>
+
+                <Label Text="{Binding Path=Item.Statustext, StringFormat='Status: {0}'}"
+                       Style="{StaticResource styleBucketListItemData}"
+                       BackgroundColor="{Binding Item.BackgroundColor}"/>
+
+                <Label Text="{Binding Path=Item.Created, StringFormat='Created {0:M}'}"
+                       Style="{StaticResource styleBucketListItemData}"/>
+
             </StackLayout>
+
+            <Grid VerticalOptions="EndAndExpand"
+                  ColumnSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Button Text="Delete" Command="{Binding DeleteCommand}" Grid.Column="0"/>
+                <Button Text="{Binding SetStatusText}" Command="{Binding SetStatusCommand}" Grid.Column="1"/>
+                <Button Text="Edit" Command="{Binding EditCommand}" Grid.Column="2"/>
+            </Grid>
             
         </StackLayout>
     </ContentPage.Content>

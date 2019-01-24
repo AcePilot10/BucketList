@@ -14,8 +14,10 @@ namespace BucketList.Api.Interfaces
         Task<User> GetUserByUsername(string username);
         Task<User> GetUserByEmail(string email);
         Task<List<User>> GetAllUsers();
+        Task<List<UserEvent>> GetAllEvents();
         Task<List<User>> GetUsersWhere(SearchQuery query);
         Task<List<UserEvent>> GetUserEvents(Guid userId);
         Task<BucketListSignInResult> SignInUser(string email, string password);
+        Task<List<BucketListItem>> GetItems(Guid userId);
     }
 }

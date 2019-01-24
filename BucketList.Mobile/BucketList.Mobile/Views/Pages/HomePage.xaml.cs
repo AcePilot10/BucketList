@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BucketList.Mobile.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,18 @@ namespace BucketList.Mobile.Views.Pages
         public HomePage()
         {
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            ((FeedViewModel)pageFeed.BindingContext).UpdateEvents();
+            ((FollowedUsersListViewModel)pageFriends.BindingContext).UpdateFollowedUsers();
+            ((MyBucketListViewModel)pageMyList.BindingContext).LoadItems();
+        }
+
+        private void btnSignout_Clicked(object sender, EventArgs e)
+        {
+            ((App)Application.Current).Signout();
         }
     }
 }

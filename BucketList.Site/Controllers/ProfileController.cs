@@ -66,7 +66,7 @@ namespace BucketListSite.Controllers
         [Route("DeleteListItem")]
         public void DeleteListItem(Guid itemId, Guid userId)
         {
-            BucketListItem item = _context.Items.Single(x => x.UserId == userId);
+            BucketListItem item = _context.Items.Single(x => x.ID == itemId);
             _context.Items.Remove(item);
 
             var events = from x in _context.UserEvents
@@ -87,13 +87,28 @@ namespace BucketListSite.Controllers
             _context.SaveChanges();
         }
 
-        [HttpPut]
+        [HttpGet]
         [Route("SetItemStatus")]
-        public void SetItemStatus(Guid userId, Guid itemId, int status)
+        public void SetItemStatus(Guid itemId, int status)
         {
-            var user = _context.Users.Single(x => x.ID == userId);
-            var item = _context.Items.Single(x => x.UserId == userId && x.ID == itemId);
+            var item = _context.Items.Single(x => x.ID == itemId);
             item.Status = status;
+
+            string username = _context.Users.Single(x => x.ID == item.UserId).Username;
+
+            if (status == StatusConstants.COMPLETE)
+            {
+                UserCompletedItemEvent userEvent = new UserCompletedItemEvent()
+                {
+                    ID = Guid.NewGuid(),
+                    ItemId = item.ID,
+                    Time = DateTime.Now,
+                    Title = username + " completed: " + item.Item,
+                    UserId = item.UserId
+                };
+                _context.UserEvents.Add(userEvent);
+            }
+
             _context.SaveChanges(); 
         }
 
@@ -102,9 +117,26 @@ namespace BucketListSite.Controllers
         public void Follow(Guid userId, Guid userToFollowId)
         {
             var user = _context.Users.Single(x => x.ID == userId);
-            var followedUsers = user.GetFollowedUsers();
+            List<Guid> followedUsers;
+            try
+            {
+                followedUsers = JsonConvert.DeserializeObject<List<Guid>>(user.FollowedUsersJson);
+            }
+            catch (Exception)
+            {
+                followedUsers = new List<Guid>();
+            }
             followedUsers.Add(userToFollowId);
             user.FollowedUsersJson = JsonConvert.SerializeObject(followedUsers);
+            _context.SaveChanges();
+        }
+
+        [HttpPost]
+        [Route("SaveItem")]
+        public void SaveItem([FromBody]BucketListItem changedItem)
+        {
+            var item = _context.Items.Single(x => x.ID == changedItem.ID);
+            item = changedItem;
             _context.SaveChanges();
         }
     }

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BucketList.Mobile.Views.Pages.PublicBucketListItemPage"
+             BackgroundColor="{StaticResource colorPrimary}"
+             Title="{Binding Path=User.Username, StringFormat='\{0}\'s Bucket List'}">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Label Text="{Binding Item.Item}"
+                       Style="{StaticResource styleBucketListItemData}"
+                       BackgroundColor="#5364E3"/>
+
+            <Label Text="{Binding Path=Item.Statustext, StringFormat='Status: {0}'}"
+                       Style="{StaticResource styleBucketListItemData}"
+                       BackgroundColor="{Binding Item.BackgroundColor}"/>
+
+            <Label Text="{Binding Path=Item.Created, StringFormat='Created {0:M}'}"
+                       Style="{StaticResource styleBucketListItemData}"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

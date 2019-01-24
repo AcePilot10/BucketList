@@ -17,19 +17,36 @@ namespace BucketList.Mobile
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new LoginPage());
-            AutoLoginUser();
+            MainPage = new SplashPage();
+            if (Properties.ContainsKey("Email"))
+            {
+                AutoLoginUser();
+            }
+            else
+            {
+                MainPage = new NavigationPage(new LoginPage());
+            }
         }
 
         private async void AutoLoginUser()
         {
-            if (Properties.ContainsKey("Email"))
-            {
-                string email = Properties["Email"].ToString();
-                User user = await UserManager.Instance.GetUserByEmail(email);
-                User = user;
-                MainPage = new NavigationPage(new HomePage());
-            }
+            string email = Properties["Email"].ToString();
+            User user = await UserManager.Instance.GetUserByEmail(email);
+            User = user;
+            MainPage = new NavigationPage(new HomePage());
+        }
+
+        public async static void UpdateUser()
+        {
+            User = await UserManager.Instance.GetUserByEmail(User.Email);
+        }
+
+        public void Signout()
+        {
+            User = null;
+            Properties["Email"] = null;
+            Properties["Password"] = null;
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()

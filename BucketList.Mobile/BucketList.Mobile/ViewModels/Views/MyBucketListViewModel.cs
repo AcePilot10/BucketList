@@ -12,21 +12,20 @@ namespace BucketList.Mobile.ViewModels
 {
     public class MyBucketListViewModel
     {
-        public ObservableCollection<BucketListItem> Items { get; set; }
+        public ObservableCollection<BucketListItem> Items { get; set; } = new ObservableCollection<BucketListItem>();
         public ICommand CreateListItemCommand { get; private set; }
 
         public MyBucketListViewModel()
         {
             CreateListItemCommand = new Command(x => Application.Current.MainPage.Navigation.PushAsync(new CreateBucketListItemPage()));
-            LoadItems();
         }
 
-        private void LoadItems()
+        public async void LoadItems()
         {
-           // var user = App.User;
-           ////var items = user.BucketListItems;
-           // Items = new ObservableCollection<BucketListItem>();
-           // items.ForEach(x => Items.Add(x));
+            Items.Clear();
+            User user = App.User;
+            var items = await UserManager.Instance.GetItems(user.ID);
+            items.ForEach(x => Items.Add(x));
         }
     }
 }

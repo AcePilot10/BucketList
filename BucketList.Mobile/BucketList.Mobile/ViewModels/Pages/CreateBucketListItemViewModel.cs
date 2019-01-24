@@ -22,7 +22,7 @@ namespace BucketList.Mobile.ViewModels
         private async void Create()
         {
             await ProfileManager.Instance.CreateListItem(Body, App.User.ID);
-            Application.Current.MainPage = new NavigationPage(new HomePage());
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

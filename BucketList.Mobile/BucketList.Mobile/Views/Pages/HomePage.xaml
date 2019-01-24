@@ -3,18 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BucketList.Mobile.Views.Pages.HomePage"
              xmlns:views="clr-namespace:BucketList.Mobile.Views"
-             Title="Bucket list">
+             Title="Bucket list"
+             BackgroundColor="#394BD6">
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Text="Signout" 
+                     Order="Secondary"
+                     x:Name="btnSignout"
+                     Clicked="btnSignout_Clicked"/>
+    </TabbedPage.ToolbarItems>
 
     <ContentPage Title="Friends" Icon="friends.png">
-        <views:FriendsListView/>
+        <views:FriendsListView x:Name="pageFriends"/>
     </ContentPage>
     
     <ContentPage Title="Feed" Icon="feed.png">
-        <views:FeedView/>
+        <views:FeedView x:Name="pageFeed"/>
     </ContentPage>
     
-    <ContentPage Title="My Bucket List" Icon="account.png">
-        <views:MyBucketListView/>
+    <ContentPage Title="Bucket List" Icon="account.png">
+        <views:MyBucketListView x:Name="pageMyList"/>
     </ContentPage>
 
 </TabbedPage>

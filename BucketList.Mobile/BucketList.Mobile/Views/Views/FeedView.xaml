@@ -3,20 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BucketList.Mobile.Views.FeedView">
     <ContentView.Content>
-      <StackLayout>
+        <StackLayout>
 
-            <ListView ItemsSource="{Binding Events}">
+            <Label Text="Events"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   Margin="12"
+                   FontSize="Large"/>
+
+            <ListView ItemsSource="{Binding Events}"
+                      x:Name="listEvents"
+                      ItemSelected="listEvents_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-
-                            <Label Text="{Binding Title}" HorizontalTextAlignment="Center"/>
-
+                            <StackLayout>
+                                <Label Text="{Binding Title}" 
+                                       HorizontalTextAlignment="Center"
+                                       TextColor="White"/>
+                            </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-           
-      </StackLayout>
+        </StackLayout>
   </ContentView.Content>
 </ContentView>

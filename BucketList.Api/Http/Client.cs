@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 
 namespace BucketList.Api.Http
@@ -31,10 +32,11 @@ namespace BucketList.Api.Http
 
         private void InitClient()
         {
-            string baseUrl = AppSettings.BASE_URL;
+            string baseUrl = "http://acebucketlist.azurewebsites.net/";
             client = new HttpClient()
             {
                 BaseAddress = new Uri(baseUrl)
+           
             };
         }
     }

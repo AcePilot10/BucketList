@@ -2,29 +2,39 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BucketList.Mobile.Views.MyBucketListView"
-             xmlns:viewmodels="clr-namespace:BucketList.Mobile.ViewModels">
+             xmlns:viewmodels="clr-namespace:BucketList.Mobile.ViewModels"
+             xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton">
     <ContentView.BindingContext>
         <viewmodels:MyBucketListViewModel/>
     </ContentView.BindingContext>
     <ContentView.Content>
         <StackLayout>
+            
             <ListView ItemsSource="{Binding Path=Items}"
                       x:Name="listItems"
                       ItemSelected="listItems_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout>
-                                <Label Text="{Binding Path=Item}"/>
+                            <StackLayout BackgroundColor="{Binding BackgroundColor}">
+                                <Label Text="{Binding Path=Item}"
+                                       Style="{StaticResource styleBucketListItem}"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="Create New"
-                    Command="{Binding CreateListItemCommand}"
-                    VerticalOptions="EndAndExpand"
-                    HorizontalOptions="CenterAndExpand"/>
+
+            <controls:FloatingActionButton x:Name="FAB"
+                                           Margin="35"
+                                           HorizontalOptions="EndAndExpand"
+                                           WidthRequest="100"
+                                           HeightRequest="100"
+                                           VerticalOptions="EndAndExpand"
+                                           Image="plus.png"
+                                           ButtonColor="#03A9F4"
+                                           Clicked="FAB_Clicked"/>
+
         </StackLayout>
     </ContentView.Content>
 </ContentView>

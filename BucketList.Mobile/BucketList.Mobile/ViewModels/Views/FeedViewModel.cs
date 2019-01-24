@@ -12,15 +12,17 @@ namespace BucketList.Mobile.ViewModels
     {
         public ObservableCollection<UserEvent> Events { get; set; } = new ObservableCollection<UserEvent>();
 
-        public FeedViewModel()
+        public async void UpdateEvents()
         {
-            InitEvents();
-        }
-
-        private async void InitEvents()
-        {
-            var events = await UserManager.Instance.GetUserEvents(App.User.ID);
-            events.ForEach(x => Events.Add(x));
+            Events.Clear();
+            var events = await UserManager.Instance.GetAllEvents();
+            foreach (var x in events)
+            {
+                if (x.UserId != App.User.ID && App.User.GetFollowedUsers().Contains(x.UserId)) 
+                {
+                    Events.Add(x);
+                }
+            }
         }
     }
 }

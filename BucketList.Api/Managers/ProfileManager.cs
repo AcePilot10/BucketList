@@ -5,6 +5,7 @@ using BucketList.Site.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,7 +34,7 @@ namespace BucketList.Api.Managers
                 Body = body
             };
             string bodyData = JsonConvert.SerializeObject(bodyObject);
-            StringContent content = new StringContent(bodyData);
+            StringContent content = new StringContent(bodyData, Encoding.UTF8, "application/json");
             var response = await Client.Instance.GetClient.PostAsync("api/profile/CreateListItem"
                                                                      + "?userId=" + userId,
                                                                      content);
@@ -41,18 +42,20 @@ namespace BucketList.Api.Managers
             return JsonConvert.DeserializeObject<BucketListItem>(result);
         }
 
-        public async void DeleteListItem(Guid userId, Guid itemId)
+        public async Task<HttpStatusCode> DeleteListItem(Guid userId, Guid itemId)
         {
-            await Client.Instance.GetClient.DeleteAsync("api/profile/DeleteListItem?" +
-                                                        "userId=" + userId +
+            var result = await Client.Instance.GetClient.DeleteAsync("api/profile/DeleteListItem?" +
+                                                        "userId=" + userId + "&" + 
                                                         "itemId=" + itemId);
+            return result.StatusCode;
         }
 
-        public async void Follow(Guid userId, Guid userToFollowId)
+        public async Task<HttpStatusCode> Follow(Guid userId, Guid userToFollowId)
         {
-            await Client.Instance.GetClient.GetAsync("api/profile/Follow?" +
-                                                     "userId=" + userId +
+            var response = await Client.Instance.GetClient.GetAsync("api/profile/Follow?" +
+                                                     "userId=" + userId + "&" + 
                                                      "userToFollowId=" + userToFollowId);
+            return response.StatusCode;
         }
 
         public async void SaveUser(User user)
@@ -61,12 +64,19 @@ namespace BucketList.Api.Managers
             await Client.Instance.GetClient.PostAsync("api/profile/SaveUser", content);
         }
 
-        public async void SetItemStatus(Guid userId, Guid itemId, int status)
+        public async Task<HttpStatusCode> SetItemStatus(Guid itemId, int status)
         {
-            await Client.Instance.GetClient.PutAsync("api/profile/SetItemStatus?" +
-                                                    "userId=" + userId +
-                                                    "itemId=" + itemId +
-                                                    "status=" + status, null);
+            var response = await Client.Instance.GetClient.GetAsync("api/profile/SetItemStatus?" +
+                                                    "itemId=" + itemId +  "&" + 
+                                                    "status=" + status);
+            return response.StatusCode;
+        }
+
+        public async Task<HttpStatusCode> SaveItem(BucketListItem item)
+        {
+            StringContent content = new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json");
+            var response = await Client.Instance.GetClient.PutAsync("api/profile/SaveItem", content);
+            return response.StatusCode;
         }
     }
 }

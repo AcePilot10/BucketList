@@ -10,11 +10,11 @@ namespace BucketList.Mobile.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class FriendsListView : ContentView
 	{
-        private FriendsListViewModel Model
+        private FollowedUsersListViewModel Model
         {
             get
             {
-                return BindingContext as FriendsListViewModel;
+                return BindingContext as FollowedUsersListViewModel;
             }
         }
 
@@ -27,7 +27,7 @@ namespace BucketList.Mobile.Views
         {
             if (listFriends.SelectedItem == null) return;
             User selectedUser = e.SelectedItem as User;
-            Application.Current.MainPage.Navigation.PushAsync(new Profile(selectedUser));
+            Application.Current.MainPage.Navigation.PushAsync(new ProfilePage(selectedUser));
             listFriends.SelectedItem = null;
         }
     }

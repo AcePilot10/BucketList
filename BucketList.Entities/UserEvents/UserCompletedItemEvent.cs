@@ -7,6 +7,6 @@ namespace BucketList.Events.UserEvents
 {
     public class UserCompletedItemEvent : UserEvent
     {
-        public string ItemId { get; set; }
+        public Guid ItemId { get; set; }
     }
 }

@@ -28,9 +28,10 @@ namespace BucketList.Api.Managers
 
         public async Task RegisterUser(string username, string email, string password, string confirmPassword)
         {
-            var result = await Client.Instance.GetClient.PostAsync("api/users/RegisterUser?username=" + username
+            var result = await Client.Instance.GetClient.PostAsync("api/users/RegisterUser?"
+                                                                   + "username=" + username
                                                                    + "&password=" + password
-                                                                   + "&email=" + confirmPassword, null);
+                                                                   + "&email=" + email, null);
         }
 
         public async Task<User> GetUserByUsername(string username)
@@ -42,7 +43,7 @@ namespace BucketList.Api.Managers
 
         public async Task<User> GetUserByEmail(string email)
         {
-            var response = await Client.Instance.GetClient.GetAsync("api/users/GetUserByUsername?email=" + email);
+            var response = await Client.Instance.GetClient.GetAsync("api/users/GetUserByEmail?email=" + email);
             string result = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<User>(result);
         }
@@ -84,6 +85,22 @@ namespace BucketList.Api.Managers
                                                                     + "&password=" + password);
             var result = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<BucketListSignInResult>(result);
+        }
+
+        public async Task<List<BucketListItem>> GetItems(Guid userId)
+        {
+            string testId = userId.ToString();
+            var response = await Client.Instance.GetClient.GetAsync("api/users/GetAllItems" +
+                                                                    "?userId=" + userId);
+            var result = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<List<BucketListItem>>(result);
+        }
+
+        public async Task<List<UserEvent>> GetAllEvents()
+        {
+            var result = await Client.Instance.GetClient.GetAsync("api/users/GetAllEvents");
+            var response = await result.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<List<UserEvent>>(response);
         }
     }
 }

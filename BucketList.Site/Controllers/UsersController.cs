@@ -104,5 +104,12 @@ namespace BucketListSite.Controllers
                          select x;
             return events.ToList();
         }
+
+        [HttpGet]
+        [Route("GetAllEvents")]
+        public List<UserEvent> GetAllEvents()
+        {
+            return _context.UserEvents.ToList();
+        }
     }
 }

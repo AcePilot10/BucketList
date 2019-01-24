@@ -1,11 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BucketList.Mobile.Views.Pages.Profile"
-             Title="{Binding Path=User.UserName, StringFormat='\{0}\'s Profile'}">
+             x:Class="BucketList.Mobile.Views.Pages.ProfilePage"
+             BackgroundColor="{StaticResource colorPrimary}"
+             Title="{Binding Path=User.Username, StringFormat='\{0}\'s Profile'}">
+    
     <ContentPage.Content>
-        <StackLayout>
-           
+        <StackLayout Margin="15">
+            <Button Text="Follow"
+                    Command="{Binding FollowCommand}"
+                    IsVisible="{Binding UserIsNotFollowing}"/>
+
+            <Label Text="{Binding Path=User.Username, StringFormat='\{0}\'s Bucket List'}"
+                    TextColor="Black"
+                    FontSize="Large"
+                    HorizontalOptions="FillAndExpand"
+                    HorizontalTextAlignment="Center"/>
+
+            <ListView ItemsSource="{Binding Path=Items}"
+                      x:Name="listItems"
+                      ItemSelected="listItems_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout BackgroundColor="{Binding BackgroundColor}">
+                                <Label Text="{Binding Path=Item}"
+                                       Style="{StaticResource styleBucketListItem}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

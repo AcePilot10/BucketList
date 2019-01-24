@@ -61,7 +61,7 @@ namespace BucketList.Api.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://localhost:57419/.
+        ///   Looks up a localized string similar to http://acebucketlist.azurewebsites.net/.
         /// </summary>
         internal static string BASE_URL {
             get {

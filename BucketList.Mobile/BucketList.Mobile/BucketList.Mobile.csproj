@@ -2,6 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>AceBucketList</PackageId>
+    <Authors>Cody Gordon</Authors>
+    <Company>Ace Software</Company>
+    <Product>AceBucketList</Product>
+    <AssemblyName>BucketList.Mobile</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -22,7 +27,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="2.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+    <PackageReference Include="SuaveControls.FloatingActionButton" Version="2018.1.5" />
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1009999" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,6 +50,9 @@
     </Compile>
     <Compile Update="Views\Pages\SearchPage.xaml.cs">
       <DependentUpon>SearchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Views\FollowedUsersView.xaml.cs">
+      <DependentUpon>FollowedUsersView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -67,10 +76,16 @@
     <EmbeddedResource Update="Views\Pages\ProfilePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Pages\PublicBucketListItemPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Pages\SplashPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Views\FeedView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Views\FriendsListView.xaml">
+    <EmbeddedResource Update="Views\Views\FollowedUsersView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Login\RegisterPage.xaml">

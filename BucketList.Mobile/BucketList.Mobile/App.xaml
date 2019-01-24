@@ -6,5 +6,21 @@
         <Style x:Key="styleNavButton" TargetType="Button">
             <Setter Property="BackgroundColor" Value="Black"/>
         </Style>
+
+        <Style x:Key="styleBucketListItem" TargetType="Label">
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="TextColor" Value="White"/>
+        </Style>
+
+        <Style x:Key="styleBucketListItemData" TargetType="Label">
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        </Style>
+
+        <Color x:Key="colorPrimary">#394BD6</Color>
+
     </Application.Resources>
 </Application>

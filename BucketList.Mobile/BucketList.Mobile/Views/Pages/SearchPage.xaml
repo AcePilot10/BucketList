@@ -7,18 +7,26 @@
         <StackLayout>
 
             <StackLayout Orientation="Horizontal">
-                <Entry Text="{Binding Query}" HorizontalOptions="FillAndExpand"/>
+                <Entry Text="{Binding Query}" HorizontalOptions="FillAndExpand" Placeholder="Username"/>
                 <Button Text="Search" Command="{Binding SearchCommand}"/>
             </StackLayout>
 
             <ListView ItemsSource="{Binding SearchResults}"
-                      BackgroundColor="Red">
+                      BackgroundColor="{StaticResource colorPrimary}"
+                      x:Name="listResults"
+                      ItemSelected="listResults_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-
-                            <Label Text="{Binding UserName}" HorizontalTextAlignment="Center"/>
-
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="account.png" HorizontalOptions="Start"/>
+                                <Label Text="{Binding Username}"
+                                       HorizontalTextAlignment="Center"
+                                       HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="FillAndExpand"
+                                       VerticalTextAlignment="Center"
+                                       FontSize="Medium"/>
+                            </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

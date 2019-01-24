@@ -1,6 +1,7 @@
 ﻿using BucketList.Entities.Models;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,8 +11,9 @@ namespace BucketList.Api.Interfaces
     {
         void SaveUser(User user);
         Task<BucketListItem> CreateListItem(string body, Guid userId);
-        void DeleteListItem(Guid userId, Guid itemId);
-        void SetItemStatus(Guid userId, Guid itemId, int status);
-        void Follow(Guid userId, Guid userToFollowId);
+        Task<HttpStatusCode> DeleteListItem(Guid userId, Guid itemId);
+        Task<HttpStatusCode> SetItemStatus(Guid itemId, int status);
+        Task<HttpStatusCode> Follow(Guid userId, Guid userToFollowId);
+        Task<HttpStatusCode> SaveItem(BucketListItem item);
     }
 }

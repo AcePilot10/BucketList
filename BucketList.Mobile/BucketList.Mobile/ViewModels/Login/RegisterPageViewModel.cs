@@ -16,7 +16,7 @@ namespace BucketList.Mobile.ViewModels.Login
         public string Username { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string ConfirmPassword { get; set; }
+        public string ConfirmPassword { get; set; } = "";
 
         private bool _loading = false;
         public bool Loading

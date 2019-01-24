@@ -40,6 +40,19 @@ namespace BucketList.Mobile.ViewModels.Pages
             }
         }
 
+        private User _user;
+        public User User {
+            get
+            {
+                return _user;
+            }
+            set
+            {
+                _user = value;
+                RaisePropertyChanged("User");
+            }
+        }
+
         public ICommand SetStatusCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
         public ICommand EditCommand { get; set; }
@@ -51,6 +64,13 @@ namespace BucketList.Mobile.ViewModels.Pages
             DeleteCommand = new Command(Delete);
             EditCommand = new Command(x => Application.Current.MainPage.Navigation.PushAsync(new EditPage(item)));
             InitStatusText();
+            LoadUser();
+        }
+
+        private async void LoadUser()
+        {
+            var result = await UserManager.Instance.GetUsersWhere(x => x.ID == Item.UserId);
+            User = result[0];
         }
 
         private void InitStatusText()
@@ -65,7 +85,7 @@ namespace BucketList.Mobile.ViewModels.Pages
             }
         }
 
-        private void SetStatus()
+        private async void SetStatus()
         {
             if (Item.Status == StatusConstants.IN_PROGRESS)
             {
@@ -77,12 +97,13 @@ namespace BucketList.Mobile.ViewModels.Pages
                 Item.Status = StatusConstants.IN_PROGRESS;
                 SetStatusText = "Set Complete";
             }
-            ProfileManager.Instance.SaveUser(App.User);
+            var result = await ProfileManager.Instance.SetItemStatus(Item.ID, Item.Status);
         }
 
-        private void Delete()
+        private async void Delete()
         {
-
+            var result = await ProfileManager.Instance.DeleteListItem(App.User.ID, Item.ID);
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 }
