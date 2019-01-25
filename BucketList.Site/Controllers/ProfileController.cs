@@ -133,11 +133,13 @@ namespace BucketListSite.Controllers
 
         [HttpPost]
         [Route("SaveItem")]
-        public void SaveItem([FromBody]BucketListItem changedItem)
+        public string SaveItem([FromBody]BucketListItem changedItem)
         {
             var item = _context.Items.Single(x => x.ID == changedItem.ID);
-            item = changedItem;
+            _context.Entry(item).CurrentValues.SetValues(changedItem);
             _context.SaveChanges();
+            return "Item " + item.ID + " has been saved!";
+            
         }
     }
 }

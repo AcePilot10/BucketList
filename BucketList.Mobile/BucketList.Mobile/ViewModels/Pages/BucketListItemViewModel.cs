@@ -53,6 +53,36 @@ namespace BucketList.Mobile.ViewModels.Pages
             }
         }
 
+        private string _statusText;
+        public string StatusText
+        {
+            get
+            {
+                return _statusText;
+            }
+            set
+            {
+                _statusText = value;
+                RaisePropertyChanged("StatusText");
+            }
+           
+        }
+
+        public string BackgroundColor
+        {
+            get
+            {
+                if (Item.Status == StatusConstants.COMPLETE)
+                {
+                    return "#33FF00";
+                }
+                else
+                {
+                    return "#001CFF";
+                }
+            }
+        }
+
         public ICommand SetStatusCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
         public ICommand EditCommand { get; set; }
@@ -78,10 +108,12 @@ namespace BucketList.Mobile.ViewModels.Pages
             if (Item.Status == StatusConstants.IN_PROGRESS)
             {
                 SetStatusText = "Set Complete";
+                StatusText = "In Progress";
             }
             else
             {
                 SetStatusText = "Set In Progress";
+                StatusText = "Complete";
             }
         }
 
@@ -91,11 +123,13 @@ namespace BucketList.Mobile.ViewModels.Pages
             {
                 Item.Status = StatusConstants.COMPLETE;
                 SetStatusText = "Set In Progress";
+                StatusText = "Complete";
             }
             else
             {
                 Item.Status = StatusConstants.IN_PROGRESS;
                 SetStatusText = "Set Complete";
+                StatusText = "In Progress";
             }
             var result = await ProfileManager.Instance.SetItemStatus(Item.ID, Item.Status);
         }

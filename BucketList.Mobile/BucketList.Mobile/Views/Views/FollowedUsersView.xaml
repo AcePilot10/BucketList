@@ -44,8 +44,9 @@
 
             <Button Text="Search Users" 
                     Command="{Binding SearchCommand}"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="End"/>
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="End"
+                    Style="{StaticResource styleButton}"/>
            
         </StackLayout>
   </ContentView.Content>

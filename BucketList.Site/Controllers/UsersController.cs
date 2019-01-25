@@ -49,7 +49,8 @@ namespace BucketListSite.Controllers
             var items = from item in _context.Items
                         where item.UserId == userId
                         select item;
-            return items.ToList();
+            var list = items.ToList();
+            return list;
         }
 
         [HttpPost]

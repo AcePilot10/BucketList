@@ -20,10 +20,10 @@ namespace BucketList.Mobile.ViewModels.Pages
             SaveCommand = new Command(Save);
         }
 
-        public void Save()
+        public async void Save()
         {
-            ProfileManager.Instance.SaveUser(App.User);
-            Application.Current.MainPage.Navigation.PopAsync();
+            await ProfileManager.Instance.SaveItem(Item);
+            await Application.Current.MainPage.Navigation.PopToRootAsync();
         }
     }
 }

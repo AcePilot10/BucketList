@@ -12,7 +12,7 @@
             </StackLayout>
 
             <ListView ItemsSource="{Binding SearchResults}"
-                      BackgroundColor="{StaticResource colorPrimary}"
+                      BackgroundColor="{StaticResource colorBackground}"
                       x:Name="listResults"
                       ItemSelected="listResults_ItemSelected">
                 <ListView.ItemTemplate>

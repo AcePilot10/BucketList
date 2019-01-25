@@ -75,7 +75,7 @@ namespace BucketList.Api.Managers
         public async Task<HttpStatusCode> SaveItem(BucketListItem item)
         {
             StringContent content = new StringContent(JsonConvert.SerializeObject(item), Encoding.UTF8, "application/json");
-            var response = await Client.Instance.GetClient.PutAsync("api/profile/SaveItem", content);
+            var response = await Client.Instance.GetClient.PostAsync("api/profile/SaveItem", content);
             return response.StatusCode;
         }
     }

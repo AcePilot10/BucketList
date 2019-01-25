@@ -4,7 +4,7 @@
              x:Class="BucketList.Mobile.Views.Pages.HomePage"
              xmlns:views="clr-namespace:BucketList.Mobile.Views"
              Title="Bucket list"
-             BackgroundColor="#394BD6">
+             BackgroundColor="{StaticResource colorBackground}">
     <TabbedPage.ToolbarItems>
         <ToolbarItem Text="Signout" 
                      Order="Secondary"

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BucketList.Mobile.Views.Pages.EditPage"
              Title="Edit"
-             BackgroundColor="{StaticResource colorPrimary}">
+             BackgroundColor="{StaticResource colorBackground}">
     <ContentPage.Content>
         <StackLayout>
             <Entry Text="{Binding Item.Item}"
@@ -11,7 +11,8 @@
                    HorizontalTextAlignment="Center"/>
 
             <Button Text="Save" Command="{Binding SaveCommand}"
-                    VerticalOptions="EndAndExpand"/>
+                    VerticalOptions="EndAndExpand"
+                    Style="{StaticResource styleButton}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

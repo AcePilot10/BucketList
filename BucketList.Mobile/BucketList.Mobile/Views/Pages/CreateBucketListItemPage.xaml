@@ -4,7 +4,7 @@
              x:Class="BucketList.Mobile.Views.CreateBucketListItemPage"
              xmlns:viewmodels="clr-namespace:BucketList.Mobile.ViewModels"
              Title="Create Bucket List Item"
-             BackgroundColor="{StaticResource colorPrimary}">
+             BackgroundColor="{StaticResource colorBackground}">
 
     <ContentPage.BindingContext>
         <viewmodels:CreateBucketListItemViewModel/>
@@ -17,7 +17,8 @@
                    HorizontalTextAlignment="Center"/>
             
             <Button Text="Create" Command="{Binding CreateCommand}"
-                    VerticalOptions="EndAndExpand"/>
+                    VerticalOptions="EndAndExpand"
+                    Style="{StaticResource styleButton}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
