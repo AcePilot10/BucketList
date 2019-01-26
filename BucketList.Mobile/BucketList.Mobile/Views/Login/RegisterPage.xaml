@@ -6,9 +6,9 @@
         <StackLayout>
             <Entry Placeholder="Username" Text="{Binding Username}"/>
             <Entry Placeholder="Email" Text="{Binding Email}"/>
-            <Entry Placeholder="Password" Text="{Binding Password}"/>
-            <Entry Placeholder="Confirm Password" Text="{Binding ConfirmPassword}"/>
-            <Button Text="Create Account" Command="{Binding RegisterCommand}"/>
+            <Entry Placeholder="Password" IsPassword="true" Text="{Binding Password}"/>
+            <Entry Placeholder="Confirm Password" IsPassword="true"  Text="{Binding ConfirmPassword}"/>
+            <Button Text="Create Account"  Command="{Binding RegisterCommand}"/>
             <Button Text="Login" Command="{Binding LoginCommand}"/>
             <ActivityIndicator
                 IsRunning="{Binding Loading}"

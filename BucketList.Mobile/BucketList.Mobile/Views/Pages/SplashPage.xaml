@@ -11,6 +11,10 @@
                    VerticalOptions="CenterAndExpand" 
                    HorizontalOptions="CenterAndExpand" />
 
+            <Image Source="ace_of_spades.png" 
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"/>
+
             <ActivityIndicator IsRunning="True"
                                WidthRequest="100" 
                                HeightRequest="100"/>

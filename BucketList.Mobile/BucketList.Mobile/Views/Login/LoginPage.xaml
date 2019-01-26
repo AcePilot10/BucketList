@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Entry Placeholder="Email" Text="{Binding Email}"/>
-            <Entry Placeholder="Password" Text="{Binding Password}"/>
+            <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="true"/>
             <Button Text="Login" Command="{Binding LoginCommand}"/>
             <Button Text="Register" Command="{Binding RegisterCommand}"/>
             <ActivityIndicator

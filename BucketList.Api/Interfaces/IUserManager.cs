@@ -10,7 +10,7 @@ namespace BucketList.Api.Interfaces
 {
     public interface IUserManager
     {
-        Task RegisterUser(string username, string password, string confirmPassword, string email);
+        Task RegisterUser(string username, string password, string email);
         Task<User> GetUserByUsername(string username);
         Task<User> GetUserByEmail(string email);
         Task<List<User>> GetAllUsers();

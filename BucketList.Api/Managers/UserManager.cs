@@ -26,7 +26,7 @@ namespace BucketList.Api.Managers
             }
         }
 
-        public async Task RegisterUser(string username, string email, string password, string confirmPassword)
+        public async Task RegisterUser(string username, string email, string password)
         {
             var result = await Client.Instance.GetClient.PostAsync("api/users/RegisterUser?"
                                                                    + "username=" + username

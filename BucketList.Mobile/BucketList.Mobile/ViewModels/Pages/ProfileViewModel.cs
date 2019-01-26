@@ -1,6 +1,7 @@
 ﻿using BucketList.Api.Managers;
 using BucketList.Entities.Models;
 using BucketList.Mobile.ViewModels.Base;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -43,12 +44,14 @@ namespace BucketList.Mobile.ViewModels.Pages
         }
 
         public ICommand FollowCommand { get; set; }
+        public ICommand UnfollowCommand { get; set; }
 
         public ProfileViewModel(User user)
         {
             User = user;
             CheckIsFollowing();
             FollowCommand = new Command(Follow);
+            UnfollowCommand = new Command(Unfollow);
             LoadItems();
         }
 
@@ -66,6 +69,23 @@ namespace BucketList.Mobile.ViewModels.Pages
             var status = await ProfileManager.Instance.Follow(App.User.ID, User.ID);
             UserIsNotFollowing = false;
             App.UpdateUser();
+        }
+
+        private async void Unfollow()
+        {
+            var followedUsers = App.User.GetFollowedUsers();
+            if (followedUsers.Contains(User.ID))
+            {
+                followedUsers.Remove(User.ID);
+                App.User.FollowedUsersJson = JsonConvert.SerializeObject(followedUsers);
+                ProfileManager.Instance.SaveUser(App.User);
+                App.UpdateUser();
+                await Application.Current.MainPage.DisplayAlert("Success", "You have unfollow " + User.Username, "Return");
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "You don't follow this user!", "Return");
+            }
         }
 
         private async void LoadItems()

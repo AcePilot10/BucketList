@@ -42,10 +42,28 @@ namespace BucketList.Mobile.ViewModels.Login
         private async void Register()
         {
             Loading = true;
-            await UserManager.Instance.RegisterUser(Username, Email, Password, ConfirmPassword);
+            if (Password == ConfirmPassword)
+            {
+                if ((await UserManager.Instance.GetUsersWhere(x => x.Email == Email)).Count == 0)
+                {
+                    await UserManager.Instance.RegisterUser(Username, Email, Password);
+                    Email = "";
+                    Password = "";
+                    ConfirmPassword = "";
+                    Username = "";
+                    await Application.Current.MainPage.DisplayAlert("Registration Complete", "Succesfully Registered! You may now login.", "Login");
+                    Application.Current.MainPage = new NavigationPage(new LoginPage());
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Erorr", "That email is already taken!", "Return");
+                }
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Erorr", "Password and Confirm Password must match!", "Return");
+            }
             Loading = false;
-            await Application.Current.MainPage.DisplayAlert("Registration Complete", "Succesfully Registered! You may now login.", "Login");
-            Application.Current.MainPage = new NavigationPage(new LoginPage());
         }
     }
 }

@@ -20,7 +20,7 @@
         <views:FeedView x:Name="pageFeed"/>
     </ContentPage>
     
-    <ContentPage Title="Bucket List" Icon="account.png">
+    <ContentPage Title="Bucket List" Icon="bucket_black.png">
         <views:MyBucketListView x:Name="pageMyList"/>
     </ContentPage>
 

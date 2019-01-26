@@ -4,6 +4,15 @@
              x:Class="BucketList.Mobile.Views.Pages.BucketListItemPage"
              Title="My Bucket List"
              BackgroundColor="{StaticResource colorBackground}">
+
+    <ContentPage.Resources>
+        <Style x:Key="btnOption" TargetType="Button">
+            <Setter Property="WidthRequest" Value="75"/>
+            <Setter Property="HeightRequest" Value="75"/>
+            <Setter Property="CornerRadius" Value="40"/>
+        </Style>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
         <StackLayout>
 
@@ -24,15 +33,34 @@
             </StackLayout>
 
             <Grid VerticalOptions="EndAndExpand"
-                  ColumnSpacing="0">
+                  ColumnSpacing="10"
+                  Margin="25">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Text="Delete" Command="{Binding DeleteCommand}" Grid.Column="0"/>
-                <Button Text="{Binding SetStatusText}" Command="{Binding SetStatusCommand}" Grid.Column="1"/>
-                <Button Text="Edit" Command="{Binding EditCommand}" Grid.Column="2"/>
+                
+                <Button Image="trash.png"
+                        x:Name="btnDelete"
+                        Command="{Binding DeleteCommand}" 
+                        Grid.Column="0"
+                        BackgroundColor="Red"
+                        Style="{StaticResource btnOption}"/>
+                
+                <Button Image="{Binding SetStatusImage}"
+                        Command="{Binding SetStatusCommand}"
+                        x:Name="btnComplete"
+                        Grid.Column="1"
+                        BackgroundColor="Green"
+                        Style="{StaticResource btnOption}"/>
+                
+                <Button Image="edit.png"
+                        Command="{Binding EditCommand}"
+                        x:Name="btnEdit"
+                        BackgroundColor="Blue"
+                        Grid.Column="2"
+                        Style="{StaticResource btnOption}"/>
             </Grid>
             
         </StackLayout>

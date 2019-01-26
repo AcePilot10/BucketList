@@ -18,6 +18,6 @@ namespace BucketList.Mobile.Views.Pages
 		{
 			InitializeComponent ();
             BindingContext = new BucketListItemViewModel(item);
-		}
+        }
 	}
 }

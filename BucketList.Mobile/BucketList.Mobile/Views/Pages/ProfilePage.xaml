@@ -4,12 +4,19 @@
              x:Class="BucketList.Mobile.Views.Pages.ProfilePage"
              BackgroundColor="{StaticResource colorBackground}"
              Title="{Binding Path=User.Username, StringFormat='\{0}\'s Profile'}">
-    
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Unfollow" 
+                     Order="Secondary"
+                     Command="{Binding UnfollowCommand}"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <StackLayout Margin="15">
             <Button Text="Follow"
                     Command="{Binding FollowCommand}"
-                    IsVisible="{Binding UserIsNotFollowing}"/>
+                    IsVisible="{Binding UserIsNotFollowing}"
+                    Style="{StaticResource styleButton}"/>
 
             <Label Text="{Binding Path=User.Username, StringFormat='\{0}\'s Bucket List'}"
                     TextColor="Black"

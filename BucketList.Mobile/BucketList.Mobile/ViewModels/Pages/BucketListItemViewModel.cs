@@ -12,6 +12,7 @@ namespace BucketList.Mobile.ViewModels.Pages
 {
     public class BucketListItemViewModel : ViewModel
     {
+        #region Properties
         private BucketListItem _item;
         public BucketListItem Item
         {
@@ -65,27 +66,41 @@ namespace BucketList.Mobile.ViewModels.Pages
                 _statusText = value;
                 RaisePropertyChanged("StatusText");
             }
-           
+
         }
 
+        private ImageSource _setStatusImage;
+        public ImageSource SetStatusImage
+        {
+            get
+            {
+                return _setStatusImage;
+            }
+            set
+            {
+                _setStatusImage = value;
+                RaisePropertyChanged("SetStatusImage");
+            }
+        }
+
+        private string _backgroundColor;
         public string BackgroundColor
         {
             get
             {
-                if (Item.Status == StatusConstants.COMPLETE)
-                {
-                    return "#33FF00";
-                }
-                else
-                {
-                    return "#001CFF";
-                }
+                return _backgroundColor;
+            }
+            private set
+            {
+                _backgroundColor = value;
+                RaisePropertyChanged("BackgroundColor");
             }
         }
 
         public ICommand SetStatusCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
         public ICommand EditCommand { get; set; }
+        #endregion
 
         public BucketListItemViewModel(BucketListItem item)
         {
@@ -109,11 +124,15 @@ namespace BucketList.Mobile.ViewModels.Pages
             {
                 SetStatusText = "Set Complete";
                 StatusText = "In Progress";
+                BackgroundColor = "#001CFF";
+                SetStatusImage = ImageSource.FromFile("checked.png");
             }
             else
             {
                 SetStatusText = "Set In Progress";
                 StatusText = "Complete";
+                BackgroundColor = "#33FF00";
+                SetStatusImage = ImageSource.FromFile("goal.png");
             }
         }
 
@@ -124,12 +143,16 @@ namespace BucketList.Mobile.ViewModels.Pages
                 Item.Status = StatusConstants.COMPLETE;
                 SetStatusText = "Set In Progress";
                 StatusText = "Complete";
+                BackgroundColor = "#33FF00";
+                SetStatusImage = ImageSource.FromFile("goal.png");
             }
             else
             {
                 Item.Status = StatusConstants.IN_PROGRESS;
                 SetStatusText = "Set Complete";
                 StatusText = "In Progress";
+                BackgroundColor = "#001CFF";
+                SetStatusImage = ImageSource.FromFile("checked.png");
             }
             var result = await ProfileManager.Instance.SetItemStatus(Item.ID, Item.Status);
         }
