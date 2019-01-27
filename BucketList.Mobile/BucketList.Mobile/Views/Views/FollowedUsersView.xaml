@@ -15,7 +15,8 @@
                    HorizontalOptions="CenterAndExpand"
                    VerticalOptions="CenterAndExpand"
                    Margin="25"
-                   FontSize="Large"/>
+                   FontSize="Large"
+                   TextColor="{StaticResource colorText}"/>
 
             <ListView ItemsSource="{Binding FriendsList}"
                       x:Name="listFriends"

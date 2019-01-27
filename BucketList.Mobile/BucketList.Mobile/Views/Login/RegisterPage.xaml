@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BucketList.Mobile.Views.Login.RegisterPage">
+             x:Class="BucketList.Mobile.Views.Login.RegisterPage"
+             Title="Register">
     <ContentPage.Content>
         <StackLayout>
             <Entry Placeholder="Username" Text="{Binding Username}"/>
             <Entry Placeholder="Email" Text="{Binding Email}"/>
             <Entry Placeholder="Password" IsPassword="true" Text="{Binding Password}"/>
             <Entry Placeholder="Confirm Password" IsPassword="true"  Text="{Binding ConfirmPassword}"/>
-            <Button Text="Create Account"  Command="{Binding RegisterCommand}"/>
-            <Button Text="Login" Command="{Binding LoginCommand}"/>
+            <Button Text="Create Account"  Command="{Binding RegisterCommand}" Style="{StaticResource styleButton}"/>
             <ActivityIndicator
                 IsRunning="{Binding Loading}"
                 HeightRequest="350"

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BucketList.Mobile.Views.Pages.HomePage"
              xmlns:views="clr-namespace:BucketList.Mobile.Views"
-             Title="Bucket list"
+             Title="Ace Bucket list"
              BackgroundColor="{StaticResource colorBackground}">
     <TabbedPage.ToolbarItems>
         <ToolbarItem Text="Signout" 

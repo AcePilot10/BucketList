@@ -107,8 +107,25 @@ namespace BucketListSite.Controllers
                     UserId = item.UserId
                 };
                 _context.UserEvents.Add(userEvent);
+                item.Completed = DateTime.Now;
+            }
+            else
+            {
+                var userEvents = _context.UserEvents;
+                foreach (var userEvent in userEvents)
+                {
+                    if (userEvent is UserCompletedItemEvent)
+                    {
+                        var completedEvent = userEvent as UserCompletedItemEvent;
+                        if(completedEvent.ItemId == itemId)
+                        {
+                            _context.UserEvents.Remove(completedEvent);
+                        }
+                    }
+                }
             }
 
+            SaveItem(item);
             _context.SaveChanges(); 
         }
 
@@ -137,9 +154,9 @@ namespace BucketListSite.Controllers
         {
             var item = _context.Items.Single(x => x.ID == changedItem.ID);
             _context.Entry(item).CurrentValues.SetValues(changedItem);
+            _context.Entry(item).State = System.Data.Entity.EntityState.Modified;
             _context.SaveChanges();
             return "Item " + item.ID + " has been saved!";
-            
         }
     }
 }

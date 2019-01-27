@@ -4,10 +4,12 @@
              x:Class="BucketList.Mobile.App">
     <Application.Resources>
 
-        <Color x:Key="colorBackground">#394BD6</Color>
+        <Color x:Key="colorBackground">White</Color>
         <Color x:Key="colorPrimary">#394BD6</Color>
-        <Color x:Key="colorSecondary">#D2D2D2</Color>
-        <Color x:Key="colorText">White</Color>
+        <Color x:Key="colorSecondary">#ee596c</Color>
+        <Color x:Key="colorText">#433d3f</Color>
+        <Color x:Key="colorTextSecondary">#c3c3c3</Color>
+        <Color x:Key="colorGray">#d1cfd0</Color>
 
         <Style x:Key="styleBucketListItem" TargetType="Label">
             <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>

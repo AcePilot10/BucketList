@@ -7,8 +7,8 @@
 
     <ContentPage.Resources>
         <Style x:Key="btnOption" TargetType="Button">
-            <Setter Property="WidthRequest" Value="75"/>
-            <Setter Property="HeightRequest" Value="75"/>
+            <Setter Property="WidthRequest" Value="60"/>
+            <Setter Property="HeightRequest" Value="60"/>
             <Setter Property="CornerRadius" Value="40"/>
         </Style>
     </ContentPage.Resources>
@@ -19,16 +19,29 @@
             <StackLayout Margin="15"
                          Padding="15">
 
+                <Image Source="bucket_black.png" 
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       Margin="0, 0, 0, 35"/>
+
                 <Label Text="{Binding Item.Item}"
                        Style="{StaticResource styleBucketListItemData}"
-                       BackgroundColor="#5364E3"/>
+                       FontSize="Large"
+                       TextColor="{StaticResource colorPrimary}"/>
 
                 <Label Text="{Binding Path=StatusText, StringFormat='Status: {0}'}"
                        Style="{StaticResource styleBucketListItemData}"
-                       BackgroundColor="{Binding BackgroundColor}"/>
+                       FontSize="Medium"
+                       TextColor="{Binding BackgroundColor}"/>
 
-                <Label Text="{Binding Path=Item.Created, StringFormat='Created {0:M}'}"
-                       Style="{StaticResource styleBucketListItemData}"/>
+                <Label Text="{Binding Path=Item.Created, StringFormat='Created {0:D}'}"
+                       Style="{StaticResource styleBucketListItemData}"
+                       FontSize="Medium"/>
+
+                <Label Text="{Binding Path=Item.Completed, StringFormat='Completed {0:D}'}"
+                       Style="{StaticResource styleBucketListItemData}"
+                       FontSize="Medium"
+                       IsVisible="{Binding ShowCompleted}"/>
 
             </StackLayout>
 

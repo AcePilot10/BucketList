@@ -97,6 +97,20 @@ namespace BucketList.Mobile.ViewModels.Pages
             }
         }
 
+        private bool _showCompleted;
+        public bool ShowCompleted
+        {
+            get
+            {
+                return _showCompleted;
+            }
+            set
+            {
+                _showCompleted = value;
+                RaisePropertyChanged("ShowCompleted");
+            }
+        }
+
         public ICommand SetStatusCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
         public ICommand EditCommand { get; set; }
@@ -126,6 +140,7 @@ namespace BucketList.Mobile.ViewModels.Pages
                 StatusText = "In Progress";
                 BackgroundColor = "#001CFF";
                 SetStatusImage = ImageSource.FromFile("checked.png");
+                ShowCompleted = false;
             }
             else
             {
@@ -133,6 +148,7 @@ namespace BucketList.Mobile.ViewModels.Pages
                 StatusText = "Complete";
                 BackgroundColor = "#33FF00";
                 SetStatusImage = ImageSource.FromFile("goal.png");
+                ShowCompleted = true;
             }
         }
 
@@ -145,6 +161,8 @@ namespace BucketList.Mobile.ViewModels.Pages
                 StatusText = "Complete";
                 BackgroundColor = "#33FF00";
                 SetStatusImage = ImageSource.FromFile("goal.png");
+                Item.Completed = DateTime.Now;
+                ShowCompleted = true;
             }
             else
             {
@@ -153,6 +171,7 @@ namespace BucketList.Mobile.ViewModels.Pages
                 StatusText = "In Progress";
                 BackgroundColor = "#001CFF";
                 SetStatusImage = ImageSource.FromFile("checked.png");
+                ShowCompleted = false;
             }
             var result = await ProfileManager.Instance.SetItemStatus(Item.ID, Item.Status);
         }

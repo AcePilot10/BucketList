@@ -12,13 +12,18 @@
             
             <ListView ItemsSource="{Binding Path=Items}"
                       x:Name="listItems"
-                      ItemSelected="listItems_ItemSelected">
+                      ItemSelected="listItems_ItemSelected"
+                      SeparatorColor="Black">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout BackgroundColor="{Binding BackgroundColor}">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="bucket_black.png" HorizontalOptions="Start"/>
                                 <Label Text="{Binding Path=Item}"
                                        Style="{StaticResource styleBucketListItem}"/>
+                                <Image Source="checked.png"
+                                       IsVisible="{Binding IsCompleted}"
+                                       BackgroundColor="Green"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
@@ -32,7 +37,7 @@
                                            HeightRequest="100"
                                            VerticalOptions="EndAndExpand"
                                            Image="plus.png"
-                                           ButtonColor="#03A9F4"
+                                           ButtonColor="{StaticResource colorSecondary}"
                                            Clicked="FAB_Clicked"/>
 
         </StackLayout>

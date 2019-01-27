@@ -18,21 +18,31 @@
                     IsVisible="{Binding UserIsNotFollowing}"
                     Style="{StaticResource styleButton}"/>
 
-            <Label Text="{Binding Path=User.Username, StringFormat='\{0}\'s Bucket List'}"
-                    TextColor="Black"
+            <Label Text="{Binding Path=User.Username, StringFormat='\{0}\'s Profile'}"
+                    TextColor="{StaticResource colorText}"
                     FontSize="Large"
                     HorizontalOptions="FillAndExpand"
                     HorizontalTextAlignment="Center"/>
-
+                
+            <Label Text="Bucket List"
+                   TextColor="{StaticResource colorTextSecondary}"
+                   FontSize="Medium"
+                   HorizontalOptions="FillAndExpand"
+                   HorizontalTextAlignment="Center"/>
+                   
             <ListView ItemsSource="{Binding Path=Items}"
                       x:Name="listItems"
-                      ItemSelected="listItems_ItemSelected">
+                      ItemSelected="listItems_ItemSelected"
+                      Margin="15"
+                      SeparatorColor="Black">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout BackgroundColor="{Binding BackgroundColor}">
                                 <Label Text="{Binding Path=Item}"
-                                       Style="{StaticResource styleBucketListItem}"/>
+                                       Style="{StaticResource styleBucketListItem}"
+                                       FontSize="Small"
+                                       TextColor="{StaticResource colorSecondary}"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

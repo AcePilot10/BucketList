@@ -4,11 +4,16 @@
              x:Class="BucketList.Mobile.Views.LoginPage"
              Title="Login">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Margin="25"
+                     VerticalOptions="CenterAndExpand">
             <Entry Placeholder="Email" Text="{Binding Email}"/>
             <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="true"/>
-            <Button Text="Login" Command="{Binding LoginCommand}"/>
-            <Button Text="Register" Command="{Binding RegisterCommand}"/>
+
+            <StackLayout Margin="5">
+                <Button Text="Login" Command="{Binding LoginCommand}" Style="{StaticResource styleButton}"/>
+                <Button Text="Register" Command="{Binding RegisterCommand}" Style="{StaticResource styleButton}"/>
+            </StackLayout>
+                
             <ActivityIndicator
                 IsRunning="{Binding Loading}"
                 HeightRequest="350"
