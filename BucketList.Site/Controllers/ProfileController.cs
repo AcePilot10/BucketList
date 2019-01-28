@@ -42,6 +42,7 @@ namespace BucketListSite.Controllers
                 Status = StatusConstants.IN_PROGRESS,
                 Item = body.Body,
                 ID = Guid.NewGuid(),
+                Completed = DateTime.Now,
                 UserId = userId
             };
 

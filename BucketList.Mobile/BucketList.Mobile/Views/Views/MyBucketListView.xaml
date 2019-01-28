@@ -19,7 +19,7 @@
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="bucket_black.png" HorizontalOptions="Start"/>
-                                <Label Text="{Binding Path=Item}"
+                                <Label Text="{Binding Path=Item.Item}"
                                        Style="{StaticResource styleBucketListItem}"/>
                                 <Image Source="checked.png"
                                        IsVisible="{Binding IsCompleted}"

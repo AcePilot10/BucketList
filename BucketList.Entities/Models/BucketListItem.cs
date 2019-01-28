@@ -16,14 +16,14 @@ namespace BucketList.Entities.Models
         public DateTime Created { get; set; }
         public DateTime Completed { get; set; }
 
-        [NotMapped]
-        [JsonIgnore]
-        public bool IsCompleted
-        {
-            get
-            {
-                return Status == StatusConstants.COMPLETE;
-            }
-        }
+        //[NotMapped]
+        //[JsonIgnore]
+        //public bool IsCompleted
+        //{
+        //    get
+        //    { 
+        //        return Status == StatusConstants.COMPLETE;
+        //    }
+        //}
     }
 }

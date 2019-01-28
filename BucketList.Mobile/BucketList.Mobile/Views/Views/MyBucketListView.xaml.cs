@@ -1,4 +1,5 @@
 ﻿using BucketList.Entities.Models;
+using BucketList.Mobile.Models;
 using BucketList.Mobile.ViewModels;
 using BucketList.Mobile.ViewModels.Pages;
 using BucketList.Mobile.Views.Pages;
@@ -23,7 +24,7 @@ namespace BucketList.Mobile.Views
             {
                 return BindingContext as MyBucketListViewModel;
             }
-        }
+        } 
 
 		public MyBucketListView ()
 		{
@@ -33,8 +34,8 @@ namespace BucketList.Mobile.Views
         private void listItems_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (listItems.SelectedItem == null) return;
-            var item = e.SelectedItem as BucketListItem;
-            Application.Current.MainPage.Navigation.PushAsync(new BucketListItemPage(item));
+            var item = e.SelectedItem as BucketListItemModel;
+            Application.Current.MainPage.Navigation.PushAsync(new BucketListItemPage(item.Item));
             listItems.SelectedItem = null;
         }
 

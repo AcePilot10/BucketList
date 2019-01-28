@@ -63,6 +63,7 @@ namespace BucketList.Api.Managers
             var users = await GetAllUsers();
             foreach (User user in users)
             {
+                if (user == null) continue;
                 if (query(user))
                 {
                     usersSatisfyingCondition.Add(user);
@@ -89,7 +90,6 @@ namespace BucketList.Api.Managers
 
         public async Task<List<BucketListItem>> GetItems(Guid userId)
         {
-            string testId = userId.ToString();
             var response = await Client.Instance.GetClient.GetAsync("api/users/GetAllItems" +
                                                                     "?userId=" + userId);
             var result = await response.Content.ReadAsStringAsync();

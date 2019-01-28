@@ -26,7 +26,7 @@ namespace BucketList.Mobile.ViewModels
         private async void Search()
         {
             SearchResults.Clear();
-            var users = await UserManager.Instance.GetUsersWhere(x => x.Username.ToLower().Contains(Query.ToLower()));
+            var users = await UserManager.Instance.GetUsersWhere(x =>x.Username.ToLower().Contains(Query.ToLower()));
             foreach (var user in users)
             {
                 if (user.ID != App.User.ID)
