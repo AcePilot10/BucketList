@@ -16,6 +16,8 @@ namespace BucketList.Mobile.ViewModels.Login
     {
         public ICommand LoginCommand { get; private set; }
         public ICommand RegisterCommand { get; private set; }
+        public ICommand ForgotPasswordCommand { get; private set; }
+
         public string Email { get; set; }
         public string Password { get; set; }
 
@@ -37,6 +39,7 @@ namespace BucketList.Mobile.ViewModels.Login
         {
             LoginCommand = new Command(Login);
             RegisterCommand = new Command(x => Application.Current.MainPage.Navigation.PushAsync(new RegisterPage()));
+            ForgotPasswordCommand = new Command(ForgotPassword);
         }
 
         private async void Login()
@@ -65,6 +68,11 @@ namespace BucketList.Mobile.ViewModels.Login
                 await Application.Current.MainPage.DisplayAlert("Login Error", "Invalid email or password", "Return");
                 return;
             }
+        }
+
+        private async void ForgotPassword()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new ForgotPasswordPage());
         }
     }
 }

@@ -78,5 +78,12 @@ namespace BucketList.Api.Managers
             var response = await Client.Instance.GetClient.PostAsync("api/profile/SaveItem", content);
             return response.StatusCode;
         }
+
+        public async Task<string> RequestPasswordChange(string email)
+        {
+            var response = await Client.Instance.GetClient.GetAsync("ResetPassword/RequestPasswordReset?email=" + email);
+            string result = await response.Content.ReadAsStringAsync();
+            return result;
+        }
     }
 }

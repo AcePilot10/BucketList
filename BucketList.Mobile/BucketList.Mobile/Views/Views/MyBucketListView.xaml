@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BucketList.Mobile.Views.MyBucketListView"
              xmlns:viewmodels="clr-namespace:BucketList.Mobile.ViewModels"
-             xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton">
+             xmlns:controls="clr-namespace:SuaveControls.Views;assembly=SuaveControls.FloatingActionButton"
+             xmlns:ads="clr-namespace:BucketList.Mobile.Views.Views">
     <ContentView.BindingContext>
         <viewmodels:MyBucketListViewModel/>
     </ContentView.BindingContext>
@@ -39,6 +40,10 @@
                                            Image="plus.png"
                                            ButtonColor="{StaticResource colorSecondary}"
                                            Clicked="FAB_Clicked"/>
+
+            <ads:AdView BackgroundColor="Red"
+                        HorizontalOptions="FillAndExpand"
+                        HeightRequest="85"/>
 
         </StackLayout>
     </ContentView.Content>

@@ -15,5 +15,6 @@ namespace BucketList.Api.Interfaces
         Task<HttpStatusCode> SetItemStatus(Guid itemId, int status);
         Task<HttpStatusCode> Follow(Guid userId, Guid userToFollowId);
         Task<HttpStatusCode> SaveItem(BucketListItem item);
+        Task<string> RequestPasswordChange(string email);
     }
 }

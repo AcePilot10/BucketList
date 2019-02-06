@@ -13,7 +13,14 @@
                 <Button Text="Login" Command="{Binding LoginCommand}" Style="{StaticResource styleButton}"/>
                 <Button Text="Register" Command="{Binding RegisterCommand}" Style="{StaticResource styleButton}"/>
             </StackLayout>
-                
+            
+            <Button Text="Forgot Password"
+                    BackgroundColor="{StaticResource colorBackground}"
+                    Command="{Binding ForgotPasswordCommand}"
+                    TextColor="Blue"
+                    FontSize="Small"
+                    HorizontalOptions="Center"/>
+
             <ActivityIndicator
                 IsRunning="{Binding Loading}"
                 HeightRequest="350"
