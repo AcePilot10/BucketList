@@ -21,7 +21,7 @@ namespace BucketList.Mobile.Droid
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-            MobileAds.Initialize(ApplicationContext, "ca-app-pub-7836018055172013~3432514177");
+            MobileAds.Initialize(ApplicationContext, "ca-app-pub-9220085631369979~4945452537");
 
             LoadApplication(new App());
         }

@@ -4,7 +4,6 @@
              x:Class="BucketList.Mobile.Views.Pages.HomePage"
              xmlns:views="clr-namespace:BucketList.Mobile.Views"
              Title="Ace Bucket list"
-             xmlns:controls="clr-namespace:BucketList.Mobile.Controls"
              BackgroundColor="{StaticResource colorBackground}">
     <TabbedPage.ToolbarItems>
         <ToolbarItem Text="Signout" 

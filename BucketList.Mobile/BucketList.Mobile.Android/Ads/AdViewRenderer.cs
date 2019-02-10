@@ -22,7 +22,7 @@ namespace BucketList.Mobile.Droid.Ads
     public class AdViewRenderer : ViewRenderer
     {
 
-        private string adUnitId = "ca-app-pub-7836018055172013/9614779146";
+        private string adUnitId = "ca-app-pub-9220085631369979/3416872155";
         private AdSize adSize = AdSize.SmartBanner;
         private AdView adView;
 
@@ -39,8 +39,9 @@ namespace BucketList.Mobile.Droid.Ads
                 LayoutParams.WrapContent, LayoutParams.WrapContent);
             adView.LayoutParameters = adParams;
 
-            var adRequest = new AdRequest.Builder()
-                                .AddTestDevice("E4E02EAD66BB1600BB0A792486C3EF0A")
+            var adRequest = new AdRequest
+                                .Builder()
+                                //.AddTestDevice("E4E02EAD66BB1600BB0A792486C3EF0A")
                                 .Build();
             adView.LoadAd(adRequest);
             return adView;

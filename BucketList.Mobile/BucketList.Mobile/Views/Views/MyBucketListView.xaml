@@ -41,9 +41,9 @@
                                            ButtonColor="{StaticResource colorSecondary}"
                                            Clicked="FAB_Clicked"/>
 
-            <ads:AdView BackgroundColor="Red"
+            <!--<ads:AdView BackgroundColor="Red"
                         HorizontalOptions="FillAndExpand"
-                        HeightRequest="85"/>
+                        HeightRequest="85"/>-->
 
         </StackLayout>
     </ContentView.Content>
