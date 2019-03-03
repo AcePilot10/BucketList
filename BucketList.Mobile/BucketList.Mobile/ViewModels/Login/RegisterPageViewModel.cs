@@ -1,6 +1,7 @@
 ﻿using BucketList.Api.Managers;
 using BucketList.Mobile.ViewModels.Base;
 using BucketList.Mobile.Views;
+using BucketList.Mobile.Views.Pages;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -49,8 +50,8 @@ namespace BucketList.Mobile.ViewModels.Login
                     Password = "";
                     ConfirmPassword = "";
                     Username = "";
-                    await Application.Current.MainPage.DisplayAlert("Registration Complete", "Succesfully Registered! You may now login.", "Login");
-                    Application.Current.MainPage = new NavigationPage(new LoginPage());
+                    await Application.Current.MainPage.DisplayAlert("Registration Complete", "Succesfully Registered!", "Login");
+                    Login();
                 }
                 else
                 {
@@ -62,6 +63,33 @@ namespace BucketList.Mobile.ViewModels.Login
                 await Application.Current.MainPage.DisplayAlert("Erorr", "Password and Confirm Password must match!", "Return");
             }
             Loading = false;
+        }
+
+        private async void Login()
+        {
+            var user = await UserManager.Instance.GetUserByEmail(Email);
+            if (user == null)
+            {
+                Loading = false;
+                await Application.Current.MainPage.DisplayAlert("Login Error", "Could not find user with that email", "Return");
+                return;
+            }
+            var result = await UserManager.Instance.SignInUser(Email, Password);
+            if (result != null && result.Succeeded)
+            {
+                Application.Current.Properties["Email"] = Email;
+                Application.Current.Properties["Password"] = Password;
+                await Application.Current.SavePropertiesAsync();
+                Loading = false;
+                App.User = user;
+                Application.Current.MainPage = new NavigationPage(new HomePage());
+            }
+            else
+            {
+                Loading = false;
+                await Application.Current.MainPage.DisplayAlert("Login Error", "Invalid email or password", "Return");
+                return;
+            }
         }
     }
 }

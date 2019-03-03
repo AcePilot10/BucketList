@@ -6,7 +6,7 @@
         <StackLayout>
             <Label Text="Ace Bucket List"
                    FontSize="Large"
-                   BackgroundColor="{StaticResource colorPrimary}"
+                   BackgroundColor="{StaticResource textHeader}"
                    TextColor="White"
                    VerticalOptions="CenterAndExpand" 
                    HorizontalOptions="CenterAndExpand" />

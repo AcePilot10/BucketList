@@ -4,24 +4,41 @@
              x:Class="BucketList.Mobile.Views.CreateBucketListItemPage"
              xmlns:viewmodels="clr-namespace:BucketList.Mobile.ViewModels"
              Title="Create Bucket List Item"
-             BackgroundColor="{StaticResource colorBackground}">
+             BackgroundColor="{StaticResource backgroundSecondary}">
 
+    <ContentPage.Resources>
+        <Style x:Key="lblDetail" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource textSecondary}"/>
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        </Style>
+    </ContentPage.Resources>
+    
     <ContentPage.BindingContext>
         <viewmodels:CreateBucketListItemViewModel/>
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
         <StackLayout>
+            <Label Text="Title"
+                   Style="{DynamicResource lblDetail}"/>
             <Entry Text="{Binding Body}"
-                   Placeholder="Body"
                    HorizontalTextAlignment="Center"/>
 
+            <Label Text="Target Date"
+                   Style="{DynamicResource lblDetail}"/>
             <DatePicker Date="{Binding Path=TargetDate, Mode=OneWayToSource}"
                         HorizontalOptions="Center"/>
 
-            <Button Text="Create" Command="{Binding CreateCommand}"
+            <Button Text="Create" 
+                    Command="{Binding CreateCommand}"
                     VerticalOptions="EndAndExpand"
-                    Style="{StaticResource styleButton}"/>
+                    TextColor="White"
+                    HorizontalOptions="Center"
+                    WidthRequest="150"
+                    FontSize="Large"
+                    CornerRadius="35"
+                    BackgroundColor="{StaticResource backgroundPrimary}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

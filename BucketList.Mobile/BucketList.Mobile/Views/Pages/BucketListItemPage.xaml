@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BucketList.Mobile.Views.Pages.BucketListItemPage"
              Title="My Bucket List"
-             BackgroundColor="{StaticResource colorBackground}">
+             BackgroundColor="{StaticResource backgroundSecondary}">
 
     <ContentPage.Resources>
         <Style x:Key="btnOption" TargetType="Button">
@@ -25,33 +25,42 @@
                        Margin="0, 0, 0, 35"/>
 
                 <Label Text="{Binding Item.Item}"
-                       Style="{StaticResource styleBucketListItemData}"
-                       FontSize="Large"
-                       TextColor="{StaticResource colorPrimary}"/>
+                       FontSize="25"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource textHeader}"
+                       HorizontalOptions="Center"/>
 
                 <Label Text="{Binding Path=StatusText, StringFormat='Status: {0}'}"
-                       Style="{StaticResource styleBucketListItemData}"
                        FontSize="Medium"
-                       TextColor="{Binding BackgroundColor}"/>
+                       TextColor="{Binding BackgroundColor}"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
 
                 <Label Text="{Binding Path=Item.Created, StringFormat='Created {0:D}'}"
-                       Style="{StaticResource styleBucketListItemData}"
-                       FontSize="Medium"/>
+                       FontSize="Medium"
+                       TextColor="{StaticResource textSecondary}"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
 
                 <Label Text="{Binding Path=Item.TargetDate, StringFormat='Target Completion Date {0:D}'}"
-                       Style="{StaticResource styleBucketListItemData}"
-                       FontSize="Medium"/>
+                       FontSize="Medium"
+                       TextColor="{StaticResource textSecondary}"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
 
                 <Label Text="{Binding Path=Item.Completed, StringFormat='Completed {0:D}'}"
-                       Style="{StaticResource styleBucketListItemData}"
-                       FontSize="Medium"
-                       IsVisible="{Binding ShowCompleted}"/>
+                       FontSize="Large"
+                       IsVisible="{Binding ShowCompleted}"
+                       TextColor="{StaticResource textSecondary}"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
 
             </StackLayout>
 
             <Grid VerticalOptions="EndAndExpand"
                   ColumnSpacing="10"
-                  Margin="25">
+                  Margin="25"
+                  HeightRequest="100">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -64,8 +73,8 @@
                         Grid.Column="0"
                         BackgroundColor="Red"
                         Style="{StaticResource btnOption}"/>
-                
-                <Button Image="{Binding SetStatusImage}"
+
+                <Button Image="goal.png"
                         Command="{Binding SetStatusCommand}"
                         x:Name="btnComplete"
                         Grid.Column="1"

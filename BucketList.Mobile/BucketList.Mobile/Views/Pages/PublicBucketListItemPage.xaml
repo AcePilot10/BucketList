@@ -2,21 +2,30 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BucketList.Mobile.Views.Pages.PublicBucketListItemPage"
-             BackgroundColor="{StaticResource colorBackground}"
+             BackgroundColor="{StaticResource backgroundSecondary}"
              Title="{Binding Path=User.Username, StringFormat='\{0}\'s Bucket List'}">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Margin="15">
 
-            <Label Text="{Binding Item.Item}"
-                       Style="{StaticResource styleBucketListItemData}"
-                       BackgroundColor="#5364E3"/>
+            <Label Text="{Binding Item.Item}" 
+                   FontSize="30"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource textHeader}"
+                   HorizontalTextAlignment="Center"/>
+
+            <Label Text="{Binding Path=Item.Created, StringFormat='Created {0:D}'}"
+                   TextColor="{StaticResource textSecondary}"
+                   HorizontalTextAlignment="Center"
+                   FontSize="Large"/>
+
+            <Label Text="{Binding Path=Item.TargetDate, StringFormat='Target Completion Date: {0:D}'}"
+                   FontSize="Medium"
+                   TextColor="{StaticResource textSecondary}"
+                   HorizontalTextAlignment="Center"/>
 
             <Label Text="{Binding Path=Item.Statustext, StringFormat='Status: {0}'}"
-                       Style="{StaticResource styleBucketListItemData}"
-                       BackgroundColor="{Binding Item.BackgroundColor}"/>
-
-            <Label Text="{Binding Path=Item.Created, StringFormat='Created {0:M}'}"
-                       Style="{StaticResource styleBucketListItemData}"/>
+                   BackgroundColor="{Binding Item.BackgroundColor}"
+                   FontSize="Large"/>
 
         </StackLayout>
     </ContentPage.Content>

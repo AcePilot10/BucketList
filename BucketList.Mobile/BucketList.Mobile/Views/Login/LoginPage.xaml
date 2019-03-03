@@ -2,24 +2,45 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BucketList.Mobile.Views.LoginPage"
-             Title="Login">
+             Title="Login"
+             BackgroundColor="{StaticResource backgroundPrimary}">
+  
     <ContentPage.Content>
         <StackLayout Margin="25"
                      VerticalOptions="CenterAndExpand">
-            <Entry Placeholder="Email" Text="{Binding Email}"/>
-            <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="true"/>
+            <Entry Placeholder="Email"
+                   Text="{Binding Email}"
+                   TextColor="White"
+                   PlaceholderColor="White"/>
+            <Entry Placeholder="Password"
+                   Text="{Binding Password}" 
+                   IsPassword="true"
+                   TextColor="White"
+                   PlaceholderColor="White"/>
 
             <StackLayout Margin="5">
-                <Button Text="Login" Command="{Binding LoginCommand}" Style="{StaticResource styleButton}"/>
-                <Button Text="Register" Command="{Binding RegisterCommand}" Style="{StaticResource styleButton}"/>
+                <Button Text="Login" 
+                        Command="{Binding LoginCommand}"
+                        CornerRadius="0"
+                        TextColor="White"
+                        WidthRequest="300"
+                        Margin="0, 20, 0, 0"
+                        BackgroundColor="{StaticResource textHeader}"/>
+                <Button Text="Register"
+                        Command="{Binding RegisterCommand}"
+                        CornerRadius="0"
+                        TextColor="White"
+                        WidthRequest="300"
+                        Margin="0, 20, 0, 0"
+                        BackgroundColor="{StaticResource textHeader}"/>
             </StackLayout>
             
             <Button Text="Forgot Password"
-                    BackgroundColor="{StaticResource colorBackground}"
                     Command="{Binding ForgotPasswordCommand}"
                     TextColor="Blue"
                     FontSize="Small"
-                    HorizontalOptions="Center"/>
+                    HorizontalOptions="Center"
+                    BackgroundColor="{StaticResource backgroundPrimary}"/>
 
             <ActivityIndicator
                 IsRunning="{Binding Loading}"
@@ -27,6 +48,7 @@
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand"
                 Color="DarkGray"/>
+          
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

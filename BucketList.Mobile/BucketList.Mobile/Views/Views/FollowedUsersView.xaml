@@ -16,19 +16,18 @@
                    VerticalOptions="CenterAndExpand"
                    Margin="25"
                    FontSize="Large"
-                   TextColor="{StaticResource colorText}"/>
+                   TextColor="{StaticResource textHeader}"
+                   FontAttributes="Bold"/>
 
             <ListView ItemsSource="{Binding FriendsList}"
                       x:Name="listFriends"
                       ItemSelected="ListView_ItemSelected"
-                      SeparatorColor="Black"
-                      Margin="15">
-                
+                      Margin="15"
+                      SeparatorColor="{StaticResource backgroundPrimary}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal"
-                                         BackgroundColor="#5364E3">
+                            <StackLayout Orientation="Horizontal">
                                 <Image Source="account.png"
                                        HorizontalOptions="Start"/>
 
@@ -36,7 +35,8 @@
                                        HorizontalTextAlignment="Center"
                                        VerticalTextAlignment="Center"
                                        HorizontalOptions="CenterAndExpand"
-                                       TextColor="White"/>
+                                       TextColor="{StaticResource textSecondary}"
+                                       FontSize="Large"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
@@ -47,7 +47,12 @@
                     Command="{Binding SearchCommand}"
                     HorizontalOptions="CenterAndExpand"
                     VerticalOptions="End"
-                    Style="{StaticResource styleButton}"/>
+                    Margin="15"
+                    BackgroundColor="{StaticResource backgroundPrimary}"
+                    CornerRadius="35"
+                    Padding="10"
+                    WidthRequest="350"
+                    TextColor="White"/>
            
         </StackLayout>
   </ContentView.Content>

@@ -17,11 +17,15 @@
                 <Entry Text="{Binding Path=Query, Mode=OneWayToSource}"  
                        HorizontalOptions="FillAndExpand"
                        Placeholder="Username"/>
-                <Button Text="Search" Command="{Binding SearchCommand}"/>
+                <Button Text="Search" 
+                        Command="{Binding SearchCommand}"
+                        BackgroundColor="{StaticResource backgroundPrimary}"
+                        TextColor="White"
+                        CornerRadius="0"/>
             </StackLayout>
 
             <ListView ItemsSource="{Binding SearchResults}"
-                      BackgroundColor="{StaticResource colorBackground}"
+                      BackgroundColor="{StaticResource backgroundSecondary}"
                       x:Name="listResults"
                       ItemSelected="listResults_ItemSelected">
                 <ListView.ItemTemplate>

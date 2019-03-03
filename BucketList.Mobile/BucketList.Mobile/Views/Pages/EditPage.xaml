@@ -2,17 +2,35 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BucketList.Mobile.Views.Pages.EditPage"
-             Title="Edit"
-             BackgroundColor="{StaticResource colorBackground}">
+             Title="Edit">
+
+    <ContentPage.Resources>
+        <Style x:Key="lblDetail" TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource textSecondary}"/>
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        </Style>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <StackLayout>
+            <Label Text="Title"
+                   Style="{DynamicResource lblDetail}"/>
             <Entry Text="{Binding Item.Item}"
                    Placeholder="Body"
                    HorizontalTextAlignment="Center"/>
 
-            <Button Text="Save" Command="{Binding SaveCommand}"
+            <Label Text="Target Date"
+                   Style="{DynamicResource lblDetail}"/>
+            <DatePicker Date="{Binding Item.TargetDate}"
+                        HorizontalOptions="Center"/>
+
+            <Button Text="Save" 
+                    Command="{Binding SaveCommand}"
                     VerticalOptions="EndAndExpand"
-                    Style="{StaticResource styleButton}"/>
+                    BackgroundColor="{StaticResource backgroundPrimary}"
+                    TextColor="White"
+                    Font="Large"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

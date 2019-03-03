@@ -3,5 +3,5 @@
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="27" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<application android:label="Ace Bucket List" android:icon="@mipmap/ico_acebucketlist"></application>
+	<application android:label="Ace Bucket List" android:icon="@mipmap/acebucketlist_logo_mdpi"></application>
 </manifest>

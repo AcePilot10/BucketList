@@ -10,7 +10,8 @@
                    VerticalOptions="CenterAndExpand"
                    Margin="12"
                    FontSize="Large"
-                   TextColor="{StaticResource colorText}"/>
+                   TextColor="{StaticResource textHeader}"
+                   FontAttributes="Bold"/>
 
             <ListView ItemsSource="{Binding Events}"
                       x:Name="listEvents"
@@ -21,7 +22,7 @@
                             <StackLayout>
                                 <Label Text="{Binding Title}" 
                                        HorizontalTextAlignment="Center"
-                                       TextColor="{StaticResource colorText}"/>
+                                       TextColor="{StaticResource textSecondary}"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

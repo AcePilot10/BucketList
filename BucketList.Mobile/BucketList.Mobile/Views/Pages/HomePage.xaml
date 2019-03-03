@@ -4,7 +4,7 @@
              x:Class="BucketList.Mobile.Views.Pages.HomePage"
              xmlns:views="clr-namespace:BucketList.Mobile.Views"
              Title="Ace Bucket list"
-             BackgroundColor="{StaticResource colorBackground}">
+             BackgroundColor="{StaticResource backgroundSecondary}">
     <TabbedPage.ToolbarItems>
         <ToolbarItem Text="Signout" 
                      Order="Secondary"
@@ -12,16 +12,16 @@
                      Clicked="btnSignout_Clicked"/>
     </TabbedPage.ToolbarItems>
 
-    <ContentPage Title="Friends" Icon="friends.png">
-        <views:FriendsListView x:Name="pageFriends"/>
+    <ContentPage Title="Bucket List" Icon="bucket_black.png">
+        <views:MyBucketListView x:Name="pageMyList"/>
     </ContentPage>
-    
+
     <ContentPage Title="Feed" Icon="feed.png">
         <views:FeedView x:Name="pageFeed"/>
     </ContentPage>
 
-    <ContentPage Title="Bucket List" Icon="bucket_black.png">
-        <views:MyBucketListView x:Name="pageMyList"/>
+    <ContentPage Title="Friends" Icon="friends.png">
+        <views:FriendsListView x:Name="pageFriends"/>
     </ContentPage>
 
 </TabbedPage>

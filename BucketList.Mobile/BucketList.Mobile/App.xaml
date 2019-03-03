@@ -3,34 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BucketList.Mobile.App">
     <Application.Resources>
-
-        <Color x:Key="colorBackground">White</Color>
-        <Color x:Key="colorPrimary">#394BD6</Color>
-        <Color x:Key="colorSecondary">#ee596c</Color>
-        <Color x:Key="colorText">#433d3f</Color>
-        <Color x:Key="colorTextSecondary">#c3c3c3</Color>
-        <Color x:Key="colorGray">#d1cfd0</Color>
-
-        <Style x:Key="styleBucketListItem" TargetType="Label">
-            <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
-            <Setter Property="HorizontalTextAlignment" Value="Center"/>
-            <Setter Property="FontSize" Value="Large"/>
-            <Setter Property="TextColor" Value="{StaticResource colorText}"/>
-        </Style>
-
-        <Style x:Key="styleBucketListItemData" TargetType="Label">
-            <Setter Property="FontSize" Value="Large"/>
-            <Setter Property="HorizontalTextAlignment" Value="Center"/>
-            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
-        </Style>
-
-        <Style x:Key="styleButton" TargetType="Button">
-            <Setter Property="WidthRequest" Value="300"/>
-            <Setter Property="HeightRequest" Value="45"/>
-            <Setter Property="BorderRadius" Value="50"/>
-            <Setter Property="Margin" Value="15"/>
-            <Setter Property="BackgroundColor" Value="{StaticResource colorSecondary}"/>
-        </Style>
+        
+        <Color x:Key="backgroundPrimary">#831c51</Color>
+        <Color x:Key="backgroundSecondary">#ffffff</Color>
+        <Color x:Key="textHeader">#f57365</Color>
+        <Color x:Key="textSecondary">#000000</Color>
 
     </Application.Resources>
 </Application>

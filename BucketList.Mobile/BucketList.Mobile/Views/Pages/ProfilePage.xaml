@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BucketList.Mobile.Views.Pages.ProfilePage"
-             BackgroundColor="{StaticResource colorBackground}"
+             BackgroundColor="{StaticResource backgroundSecondary}"
              Title="{Binding Path=User.Username, StringFormat='\{0}\'s Profile'}">
 
     <ContentPage.ToolbarItems>
@@ -15,18 +15,12 @@
         <StackLayout Margin="15">
             <Button Text="Follow"
                     Command="{Binding FollowCommand}"
-                    IsVisible="{Binding UserIsNotFollowing}"
-                    Style="{StaticResource styleButton}"/>
+                    IsVisible="{Binding UserIsNotFollowing}"/>
 
-            <Label Text="{Binding Path=User.Username, StringFormat='\{0}\'s Profile'}"
-                    TextColor="{StaticResource colorText}"
-                    FontSize="Large"
-                    HorizontalOptions="FillAndExpand"
-                    HorizontalTextAlignment="Center"/>
-                
-            <Label Text="Bucket List"
-                   TextColor="{StaticResource colorTextSecondary}"
-                   FontSize="Medium"
+            <Label Text="{Binding Path=User.Username, StringFormat='\{0}\s Bucket List'}"
+                   TextColor="{StaticResource textHeader}"
+                   FontSize="Large"
+                   FontAttributes="Bold"
                    HorizontalOptions="FillAndExpand"
                    HorizontalTextAlignment="Center"/>
                    
@@ -34,15 +28,16 @@
                       x:Name="listItems"
                       ItemSelected="listItems_ItemSelected"
                       Margin="15"
-                      SeparatorColor="Black">
+                      SeparatorColor="{StaticResource backgroundPrimary}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout BackgroundColor="{Binding BackgroundColor}">
                                 <Label Text="{Binding Path=Item}"
-                                       Style="{StaticResource styleBucketListItem}"
-                                       FontSize="Small"
-                                       TextColor="{StaticResource colorSecondary}"/>
+                                       FontSize="Large"
+                                       TextColor="{StaticResource textSecondary}"
+                                       HorizontalOptions="CenterAndExpand"
+                                       HorizontalTextAlignment="Center"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
