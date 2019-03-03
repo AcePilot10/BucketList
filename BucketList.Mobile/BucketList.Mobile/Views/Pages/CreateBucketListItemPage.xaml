@@ -15,7 +15,10 @@
             <Entry Text="{Binding Body}"
                    Placeholder="Body"
                    HorizontalTextAlignment="Center"/>
-            
+
+            <DatePicker Date="{Binding Path=TargetDate, Mode=OneWayToSource}"
+                        HorizontalOptions="Center"/>
+
             <Button Text="Create" Command="{Binding CreateCommand}"
                     VerticalOptions="EndAndExpand"
                     Style="{StaticResource styleButton}"/>

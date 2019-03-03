@@ -38,6 +38,10 @@
                        Style="{StaticResource styleBucketListItemData}"
                        FontSize="Medium"/>
 
+                <Label Text="{Binding Path=Item.TargetDate, StringFormat='Target Completion Date {0:D}'}"
+                       Style="{StaticResource styleBucketListItemData}"
+                       FontSize="Medium"/>
+
                 <Label Text="{Binding Path=Item.Completed, StringFormat='Completed {0:D}'}"
                        Style="{StaticResource styleBucketListItemData}"
                        FontSize="Medium"

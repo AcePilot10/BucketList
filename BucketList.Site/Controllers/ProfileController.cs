@@ -33,18 +33,12 @@ namespace BucketListSite.Controllers
 
         [HttpPost]
         [Route("CreateListItem")]
-        public BucketListItem CreateListItem([FromBody]BodyObject body, Guid userId)
-        { 
-            User user = _context.Users.Single(x => x.ID == userId);
-            BucketListItem item = new BucketListItem()
-            {
-                Created = DateTime.Now,
-                Status = StatusConstants.IN_PROGRESS,
-                Item = body.Body,
-                ID = Guid.NewGuid(),
-                Completed = DateTime.Now,
-                UserId = userId
-            };
+        public BucketListItem CreateListItem([FromBody]BucketListItem item)
+        {
+            item.ID = Guid.NewGuid();
+            item.Created = DateTime.Now;
+            item.Completed = DateTime.Now;
+            var user = _context.Users.SingleOrDefault(x => x.ID == item.UserId);
 
             UserCreatedItemEvent createdEvent = new UserCreatedItemEvent()
             {

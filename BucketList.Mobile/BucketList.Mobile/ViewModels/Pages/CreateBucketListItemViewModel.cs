@@ -1,4 +1,5 @@
 ﻿using BucketList.Api.Managers;
+using BucketList.Entities.Models;
 using BucketList.Mobile.Views.Pages;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace BucketList.Mobile.ViewModels
         public ICommand CreateCommand { get; private set; }
 
         public string Body { get; set; }
+        public DateTime TargetDate { get; set; }
 
         public CreateBucketListItemViewModel()
         {
@@ -21,7 +23,16 @@ namespace BucketList.Mobile.ViewModels
 
         private async void Create()
         {
-            await ProfileManager.Instance.CreateListItem(Body, App.User.ID);
+            BucketListItem item = new BucketListItem()
+            {
+                Created = DateTime.Now,
+                Item = Body,
+                Status = StatusConstants.IN_PROGRESS,
+                TargetDate = TargetDate.Date,
+                UserId = App.User.ID
+            };
+            //await ProfileManager.Instance.CreateListItem(Body, App.User.ID);
+            await ProfileManager.Instance.CreateListItem(item);
             await Application.Current.MainPage.Navigation.PopAsync();
         }
     }

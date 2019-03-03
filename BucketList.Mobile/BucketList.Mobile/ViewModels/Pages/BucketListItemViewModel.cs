@@ -178,8 +178,12 @@ namespace BucketList.Mobile.ViewModels.Pages
 
         private async void Delete()
         {
-            var result = await ProfileManager.Instance.DeleteListItem(App.User.ID, Item.ID);
-            await Application.Current.MainPage.Navigation.PopAsync();
+            var answer = await Application.Current.MainPage.DisplayAlert("Delete", "Are you sure you want to delete this?", "Yes", "No");
+            if (answer)
+            {
+                var result = await ProfileManager.Instance.DeleteListItem(App.User.ID, Item.ID);
+                await Application.Current.MainPage.Navigation.PopAsync();
+            }
         }
     }
 }

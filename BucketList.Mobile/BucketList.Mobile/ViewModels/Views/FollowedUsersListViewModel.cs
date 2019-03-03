@@ -18,7 +18,13 @@ namespace BucketList.Mobile.ViewModels
 
         public FollowedUsersListViewModel()
         {
-            SearchCommand = new Command(x => Application.Current.MainPage.Navigation.PushAsync(new SearchPage()));
+            SearchCommand = new Command(ViewSearchPage);
+        }
+
+        private async void ViewSearchPage()
+        {
+            SearchPage page = new SearchPage();
+            await Application.Current.MainPage.Navigation.PushAsync(page);
         }
 
         public async void UpdateFollowedUsers()

@@ -18,7 +18,6 @@ namespace BucketList.Mobile.Views
 		public SearchPage ()
 		{
 			InitializeComponent ();
-            BindingContext = new SearchPageViewModel();
 		}
 
         private void listResults_ItemSelected(object sender, SelectedItemChangedEventArgs e)

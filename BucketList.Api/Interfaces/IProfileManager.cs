@@ -10,7 +10,7 @@ namespace BucketList.Api.Interfaces
     public interface IProfileManager
     {
         void SaveUser(User user);
-        Task<BucketListItem> CreateListItem(string body, Guid userId);
+        Task<BucketListItem> CreateListItem(BucketListItem item);
         Task<HttpStatusCode> DeleteListItem(Guid userId, Guid itemId);
         Task<HttpStatusCode> SetItemStatus(Guid itemId, int status);
         Task<HttpStatusCode> Follow(Guid userId, Guid userToFollowId);

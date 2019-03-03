@@ -27,16 +27,11 @@ namespace BucketList.Api.Managers
             }
         }
 
-        public async Task<BucketListItem> CreateListItem(string body, Guid userId)
+        public async Task<BucketListItem> CreateListItem(BucketListItem item)
         {
-            BodyObject bodyObject = new BodyObject()
-            {
-                Body = body
-            };
-            string bodyData = JsonConvert.SerializeObject(bodyObject);
-            StringContent content = new StringContent(bodyData, Encoding.UTF8, "application/json");
-            var response = await Client.Instance.GetClient.PostAsync("api/profile/CreateListItem"
-                                                                     + "?userId=" + userId,
+            string json = JsonConvert.SerializeObject(item);
+            StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await Client.Instance.GetClient.PostAsync("api/profile/CreateListItem",
                                                                      content);
             var result = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<BucketListItem>(result);

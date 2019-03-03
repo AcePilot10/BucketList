@@ -10,5 +10,6 @@ namespace BucketList.Entities.Models
         public int Status { get; set; }
         public DateTime Created { get; set; }
         public DateTime Completed { get; set; }
+        public DateTime TargetDate { get; set; }
     }
 }
