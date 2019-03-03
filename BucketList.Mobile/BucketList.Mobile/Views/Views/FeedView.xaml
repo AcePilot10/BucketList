@@ -15,14 +15,16 @@
 
             <ListView ItemsSource="{Binding Events}"
                       x:Name="listEvents"
-                      ItemSelected="listEvents_ItemSelected">
+                      ItemSelected="listEvents_ItemSelected"
+                      HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
                                 <Label Text="{Binding Title}" 
                                        HorizontalTextAlignment="Center"
-                                       TextColor="{StaticResource textSecondary}"/>
+                                       TextColor="{StaticResource textSecondary}"
+                                       FontSize="Large"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

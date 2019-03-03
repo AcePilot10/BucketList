@@ -23,7 +23,8 @@
             <Label Text="Title"
                    Style="{DynamicResource lblDetail}"/>
             <Entry Text="{Binding Body}"
-                   HorizontalTextAlignment="Center"/>
+                   HorizontalTextAlignment="Center"
+                   BackgroundColor="{StaticResource backgroundPrimary}"/>
 
             <Label Text="Target Date"
                    Style="{DynamicResource lblDetail}"/>
