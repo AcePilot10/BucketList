@@ -15,7 +15,8 @@
                    TextColor="{StaticResource textHeader}"
                    FontSize="25"
                    FontAttributes="Bold"
-                   HorizontalOptions="Center"/>
+                   HorizontalOptions="Center"
+                   Margin="25"/>
 
             <ListView ItemsSource="{Binding Path=Items}"
                       x:Name="listItems"
@@ -36,8 +37,8 @@
                                 <Label Text="{Binding Path=Item.Item}"
                                        TextColor="{StaticResource textSecondary}"
                                        FontSize="Large"
-                                       HorizontalOptions="CenterAndExpand"
-                                       HorizontalTextAlignment="Center"/>
+                                       HorizontalOptions="FillAndExpand"
+                                       HorizontalTextAlignment="Start"/>
                                 <Image Source="checked.png"
                                        IsVisible="{Binding IsCompleted}"
                                        HorizontalOptions="End"/>
@@ -57,9 +58,7 @@
                                            ButtonColor="{StaticResource backgroundPrimary}"
                                            Clicked="FAB_Clicked"/>
 
-            <!--<ads:AdView BackgroundColor="Red"
-                        HorizontalOptions="FillAndExpand"
-                        HeightRequest="85"/>-->
+            <ads:AdView/>
 
         </StackLayout>
     </ContentView.Content>

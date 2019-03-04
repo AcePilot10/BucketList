@@ -2,7 +2,8 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BucketList.Mobile.Views.FriendsListView"
-             xmlns:viewmodels="clr-namespace:BucketList.Mobile.ViewModels">
+             xmlns:viewmodels="clr-namespace:BucketList.Mobile.ViewModels"
+             xmlns:ads="clr-namespace:BucketList.Mobile.Views.Views">
     
     <ContentView.BindingContext>
         <viewmodels:FollowedUsersListViewModel/>
@@ -53,7 +54,9 @@
                     Padding="10"
                     WidthRequest="350"
                     TextColor="White"/>
-           
+
+            <ads:AdView/>
+
         </StackLayout>
   </ContentView.Content>
 </ContentView>

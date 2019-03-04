@@ -26,6 +26,7 @@ namespace BucketList.Mobile
             {
                 MainPage = new NavigationPage(new LoginPage());
             }
+            //MainPage = new AdsTest();
         }
 
         private async void AutoLoginUser()

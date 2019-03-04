@@ -7,5 +7,6 @@ namespace BucketList.Mobile.Ads
 {
     public class AdControlView : View
     {
+
     }
 }

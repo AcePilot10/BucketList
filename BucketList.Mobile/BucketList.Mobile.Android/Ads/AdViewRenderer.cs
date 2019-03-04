@@ -19,14 +19,18 @@ using Xamarin.Forms.Platform.Android;
     typeof(AdViewRenderer))]
 namespace BucketList.Mobile.Droid.Ads
 {
-    public class AdViewRenderer : ViewRenderer
+    public class AdViewRenderer : 
+        ViewRenderer
     {
 
         private string adUnitId = "ca-app-pub-9220085631369979/3416872155";
         private AdSize adSize = AdSize.SmartBanner;
         private AdView adView;
 
-        public AdViewRenderer(Context context) : base(context) { }
+        public AdViewRenderer(Context context) : base(context)
+        {
+            CreateAdView();
+        }
 
         private AdView CreateAdView()
         {
