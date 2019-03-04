@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.codygordon.acebucketlist" android:installLocation="auto" android:versionName="2.0" android:versionCode="5">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.codygordon.acebucketlist" android:installLocation="auto" android:versionName="2.1" android:versionCode="6">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="27" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<application android:label="Ace Bucket List" android:icon="@mipmap/acebucketlist_logo_mdpi"></application>
-  <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
-  <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent" />
+	<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+	<activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent" />
 </manifest>
