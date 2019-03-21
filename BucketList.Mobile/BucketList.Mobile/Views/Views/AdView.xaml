@@ -17,8 +17,9 @@
                                    HeightRequest="50"/>
             </Grid>-->
 
-            <ads:AdControlView HeightRequest="75"
-                               VerticalOptions="End"/>
+            <ads:AdControlView VerticalOptions="EndAndExpand"
+                               HorizontalOptions="FillAndExpand"
+                               HeightRequest="100"/>
 
         </StackLayout>
     </ContentView.Content>

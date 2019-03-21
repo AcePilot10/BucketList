@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BucketList.Mobile.Views.CreateBucketListItemPage"
              xmlns:viewmodels="clr-namespace:BucketList.Mobile.ViewModels"
+             xmlns:ads="clr-namespace:BucketList.Mobile.Views.Views"
              Title="Create Bucket List Item"
              BackgroundColor="{StaticResource backgroundSecondary}">
 
@@ -40,6 +41,7 @@
                     FontSize="Large"
                     CornerRadius="35"
                     BackgroundColor="{StaticResource backgroundPrimary}"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -45,7 +45,7 @@ namespace BucketList.Mobile.Droid.Ads
 
             var adRequest = new AdRequest
                                 .Builder()
-                                //.AddTestDevice("E4E02EAD66BB1600BB0A792486C3EF0A")
+                                .AddTestDevice("E4E02EAD66BB1600BB0A792486C3EF0A")
                                 .Build();
             adView.LoadAd(adRequest);
             return adView;

@@ -67,29 +67,7 @@ namespace BucketList.Mobile.ViewModels.Login
 
         private async void Login()
         {
-            var user = await UserManager.Instance.GetUserByEmail(Email);
-            if (user == null)
-            {
-                Loading = false;
-                await Application.Current.MainPage.DisplayAlert("Login Error", "Could not find user with that email", "Return");
-                return;
-            }
-            var result = await UserManager.Instance.SignInUser(Email, Password);
-            if (result != null && result.Succeeded)
-            {
-                Application.Current.Properties["Email"] = Email;
-                Application.Current.Properties["Password"] = Password;
-                await Application.Current.SavePropertiesAsync();
-                Loading = false;
-                App.User = user;
-                Application.Current.MainPage = new NavigationPage(new HomePage());
-            }
-            else
-            {
-                Loading = false;
-                await Application.Current.MainPage.DisplayAlert("Login Error", "Invalid email or password", "Return");
-                return;
-            }
+            await Application.Current.MainPage.Navigation.PopAsync();
         }
     }
 }
